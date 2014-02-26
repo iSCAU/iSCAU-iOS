@@ -1,0 +1,5 @@
+Podfile.*
+resource/*
+iSCAU/Vendor/Reveal*
+build/*
+Pods/

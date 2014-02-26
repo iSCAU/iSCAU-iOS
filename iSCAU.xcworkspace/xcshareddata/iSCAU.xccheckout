@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A3DAE8EA-81F8-495A-8466-4EE91CDD8276</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iSCAU</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>02A6AD2F-B73B-4DEA-BC5D-2E1AE3590571</key>
+		<string>https://git.oschina.net/alvinzhu/iSCAU_v2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iSCAU.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>02A6AD2F-B73B-4DEA-BC5D-2E1AE3590571</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://git.oschina.net/alvinzhu/iSCAU_v2.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>02A6AD2F-B73B-4DEA-BC5D-2E1AE3590571</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>02A6AD2F-B73B-4DEA-BC5D-2E1AE3590571</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iSCAU</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController">
+            <connections>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="2s3-hg-Nu8">
+                    <rect key="frame" x="80" y="24" width="160" height="160"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="TJI-JS-WCz"/>
+                    </constraints>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="64" maxX="0.0" maxY="-64"/>
+                </imageView>
+                <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.huanongbao.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZ4-5y-yx7">
+                    <rect key="frame" x="0.0" y="507" width="320" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="64" maxX="0.0" maxY="-64"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDC-F0-FPt">
+                    <rect key="frame" x="133" y="197" width="55" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="ahU-15-m3H"/>
+                    </constraints>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="64" maxX="0.0" maxY="-64"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wme-Oa-doL">
+                    <rect key="frame" x="110" y="470" width="100" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="5aS-Tj-NiG"/>
+                        <constraint firstAttribute="width" constant="100" id="iQL-lm-6N5"/>
+                    </constraints>
+                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="64" maxX="0.0" maxY="-64"/>
+                    <state key="normal" title="意见反馈">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="feedback:" destination="-1" eventType="touchUpInside" id="d9H-s4-RFJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="HZ4-5y-yx7" secondAttribute="bottom" constant="20" symbolic="YES" id="19y-8d-Rlq"/>
+                <constraint firstItem="2s3-hg-Nu8" firstAttribute="top" secondItem="1" secondAttribute="top" constant="24" id="F0Z-1T-Sgn"/>
+                <constraint firstAttribute="trailing" secondItem="HZ4-5y-yx7" secondAttribute="trailing" id="L7v-tN-1oR"/>
+                <constraint firstItem="HZ4-5y-yx7" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Mse-bs-cPx"/>
+                <constraint firstItem="BDC-F0-FPt" firstAttribute="centerX" secondItem="wme-Oa-doL" secondAttribute="centerX" id="VOJ-SW-xeq"/>
+                <constraint firstItem="2s3-hg-Nu8" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="80" id="Vgm-e8-6O9"/>
+                <constraint firstItem="BDC-F0-FPt" firstAttribute="top" secondItem="2s3-hg-Nu8" secondAttribute="bottom" constant="13" id="fMo-0T-z7J"/>
+                <constraint firstItem="wme-Oa-doL" firstAttribute="centerX" secondItem="HZ4-5y-yx7" secondAttribute="centerX" id="odd-mf-Ki9"/>
+                <constraint firstItem="HZ4-5y-yx7" firstAttribute="top" secondItem="wme-Oa-doL" secondAttribute="bottom" constant="8" symbolic="YES" id="p6e-U1-Kpi"/>
+                <constraint firstItem="BDC-F0-FPt" firstAttribute="centerX" secondItem="2s3-hg-Nu8" secondAttribute="centerX" id="yvA-hM-oQW"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="iTunesArtwork.jpeg" width="512" height="512"/>
+    </resources>
+</document>
