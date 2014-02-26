@@ -102,7 +102,6 @@
 		186B2A2518BA4CB2000EC4A3 /* LibSearchBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186B2A1318BA4CB2000EC4A3 /* LibSearchBooksViewController.m */; };
 		186B2A2618BA4CB2000EC4A3 /* LibSearchBooksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186B2A1418BA4CB2000EC4A3 /* LibSearchBooksViewController.xib */; };
 		186B2A2A18BA4E3C000EC4A3 /* CardStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186B2A2918BA4E3C000EC4A3 /* CardStyleView.m */; };
-		1890345A17F3274900796CE3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1890345917F3274900796CE3 /* Reveal.framework */; };
 		18954FB018B7574B009F28AF /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18954FAF18B7574B009F28AF /* ImageCropper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		189EF6CD17C2898F001B3C20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189EF6CC17C2898F001B3C20 /* UIKit.framework */; };
 		189EF6CF17C2898F001B3C20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189EF6CE17C2898F001B3C20 /* Foundation.framework */; };
@@ -315,7 +314,6 @@
 		186B2A1418BA4CB2000EC4A3 /* LibSearchBooksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibSearchBooksViewController.xib; sourceTree = "<group>"; };
 		186B2A2818BA4E3C000EC4A3 /* CardStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardStyleView.h; sourceTree = "<group>"; };
 		186B2A2918BA4E3C000EC4A3 /* CardStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardStyleView.m; sourceTree = "<group>"; };
-		1890345917F3274900796CE3 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = iSCAU/Vendor/Reveal.framework; sourceTree = "<group>"; };
 		18954FAE18B7574B009F28AF /* ImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropper.h; sourceTree = "<group>"; };
 		18954FAF18B7574B009F28AF /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
 		189EF6C917C2898F001B3C20 /* iSCAU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSCAU.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,7 +408,6 @@
 				189EF6CD17C2898F001B3C20 /* UIKit.framework in Frameworks */,
 				18EC473718B507980015DFEE /* libMobClickLibrary.a in Frameworks */,
 				189EF6CF17C2898F001B3C20 /* Foundation.framework in Frameworks */,
-				1890345A17F3274900796CE3 /* Reveal.framework in Frameworks */,
 				18443CB018B6FCA8006C4E6B /* libUMFeedback.a in Frameworks */,
 				189EF6D117C2898F001B3C20 /* CoreGraphics.framework in Frameworks */,
 				EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */,
@@ -763,7 +760,6 @@
 			isa = PBXGroup;
 			children = (
 				18EDE81F188AD16200F31288 /* Accelerate.framework */,
-				1890345917F3274900796CE3 /* Reveal.framework */,
 				1861668117DBA3F500ECFA5C /* QuartzCore.framework */,
 				189EF6CC17C2898F001B3C20 /* UIKit.framework */,
 				189EF6CE17C2898F001B3C20 /* Foundation.framework */,
