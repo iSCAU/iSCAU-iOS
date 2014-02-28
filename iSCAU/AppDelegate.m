@@ -77,19 +77,19 @@ NSString * const UM_CODE = @"50b853b85270156c2b000007";
     return YES;
 }
 
-#pragma mark - remote notification
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    NSLog(@"register %@", deviceToken);
-}
-
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知" message:@"信息" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
-    [alert show];
-}
-
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"error %@", error);
-}
+//#pragma mark - remote notification
+//
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+//    NSLog(@"register %@", deviceToken);
+//}
+//
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知" message:@"信息" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
+//    [alert show];
+//}
+//
+//- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+//    NSLog(@"error %@", error);
+//}
 
 @end

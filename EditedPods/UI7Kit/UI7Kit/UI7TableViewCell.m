@@ -62,7 +62,7 @@
     self.selectedBackgroundView.backgroundColor = [UIColor colorWith8bitWhite:217 alpha:255];
     self.textLabel.backgroundColor = [UIColor clearColor];
     self.detailTextLabel.backgroundColor = [UIColor clearColor];
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)_accessoryButtonTapped:(id)sender {
