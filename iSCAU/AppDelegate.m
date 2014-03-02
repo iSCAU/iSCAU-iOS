@@ -47,26 +47,16 @@ NSString *SERIAL_NUMBER = @"serial_number";
 NSString *URL = @"url";
 NSString *YEAR_TITLE = @"year_title";
 
-// -----
-
 //正式版
 NSString * const UM_CODE = @"50b853b85270156c2b000007";
-//测试用
-#define UM_TEST_CODE @"506ac44b52701564ff000081"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.tintColor = [UIColor colorWithR:0 g:126 b:245 a:1];
-    
-    // NavigationBar color
-    if (IS_FLAT_UI) {
-        [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
-    }
-    
+    self.tintColor = [UIColor colorWithR:0 g:126 b:245 a:1];    
     [MobClick startWithAppkey:UM_CODE];
     [MobClick checkUpdate];
     [MobClick updateOnlineConfig];
@@ -76,20 +66,5 @@ NSString * const UM_CODE = @"50b853b85270156c2b000007";
     [self.window makeKeyAndVisible];
     return YES;
 }
-
-//#pragma mark - remote notification
-//
-//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-//    NSLog(@"register %@", deviceToken);
-//}
-//
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"通知" message:@"信息" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil];
-//    [alert show];
-//}
-//
-//- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-//    NSLog(@"error %@", error);
-//}
 
 @end

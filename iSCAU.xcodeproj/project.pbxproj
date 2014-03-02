@@ -36,13 +36,6 @@
 		18443CA818B6FA33006C4E6B /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18443CA618B6FA33006C4E6B /* AboutViewController.xib */; };
 		18443CB018B6FCA8006C4E6B /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18443CAD18B6FCA8006C4E6B /* libUMFeedback.a */; };
 		18443CB118B6FCA8006C4E6B /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18443CAE18B6FCA8006C4E6B /* umFeedback.bundle */; };
-		1861667017DB846400ECFA5C /* AccelerationAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666317DB846400ECFA5C /* AccelerationAnimation.m */; };
-		1861667117DB846400ECFA5C /* Evaluate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666517DB846400ECFA5C /* Evaluate.m */; };
-		1861667217DB846400ECFA5C /* REBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666717DB846400ECFA5C /* REBackgroundView.m */; };
-		1861667317DB846400ECFA5C /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666917DB846400ECFA5C /* RESideMenu.m */; };
-		1861667417DB846400ECFA5C /* RESideMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666B17DB846400ECFA5C /* RESideMenuCell.m */; };
-		1861667517DB846400ECFA5C /* RESideMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666D17DB846400ECFA5C /* RESideMenuItem.m */; };
-		1861667617DB846400ECFA5C /* UIWindow+RESideMenuExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861666F17DB846400ECFA5C /* UIWindow+RESideMenuExtensions.m */; };
 		1861668217DBA3F500ECFA5C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1861668117DBA3F500ECFA5C /* QuartzCore.framework */; };
 		1861668A17DBA59300ECFA5C /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861668517DBA59300ECFA5C /* UIColor+Addition.m */; };
 		1861668B17DBA59300ECFA5C /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861668717DBA59300ECFA5C /* UIImage+Tint.m */; };
@@ -128,7 +121,6 @@
 		18B7A0D018B2259A009B1F7E /* AZNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B7A0CF18B2259A009B1F7E /* AZNewsCell.xib */; };
 		18C0B3C618B26148000B67EB /* AZNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C0B3C418B26148000B67EB /* AZNewsDetailViewController.m */; };
 		18C0B3C718B26148000B67EB /* AZNewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C0B3C518B26148000B67EB /* AZNewsDetailViewController.xib */; };
-		18D74AF217E22E670019C257 /* IZValueSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D74AF117E22E670019C257 /* IZValueSelectorView.m */; };
 		18D90F5918B8B78C00E0ADDB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D90F5718B8B78C00E0ADDB /* BaseViewController.m */; };
 		18D90F5A18B8B78C00E0ADDB /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D90F5818B8B78C00E0ADDB /* BaseViewController.xib */; };
 		18EC472918B468A80015DFEE /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC472718B468A80015DFEE /* SelectionViewController.m */; };
@@ -206,20 +198,6 @@
 		18443CAD18B6FCA8006C4E6B /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
 		18443CAE18B6FCA8006C4E6B /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
 		18443CAF18B6FCA8006C4E6B /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
-		1861666217DB846400ECFA5C /* AccelerationAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerationAnimation.h; sourceTree = "<group>"; };
-		1861666317DB846400ECFA5C /* AccelerationAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerationAnimation.m; sourceTree = "<group>"; };
-		1861666417DB846400ECFA5C /* Evaluate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluate.h; sourceTree = "<group>"; };
-		1861666517DB846400ECFA5C /* Evaluate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evaluate.m; sourceTree = "<group>"; };
-		1861666617DB846400ECFA5C /* REBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REBackgroundView.h; sourceTree = "<group>"; };
-		1861666717DB846400ECFA5C /* REBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REBackgroundView.m; sourceTree = "<group>"; };
-		1861666817DB846400ECFA5C /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
-		1861666917DB846400ECFA5C /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
-		1861666A17DB846400ECFA5C /* RESideMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenuCell.h; sourceTree = "<group>"; };
-		1861666B17DB846400ECFA5C /* RESideMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenuCell.m; sourceTree = "<group>"; };
-		1861666C17DB846400ECFA5C /* RESideMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenuItem.h; sourceTree = "<group>"; };
-		1861666D17DB846400ECFA5C /* RESideMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenuItem.m; sourceTree = "<group>"; };
-		1861666E17DB846400ECFA5C /* UIWindow+RESideMenuExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+RESideMenuExtensions.h"; sourceTree = "<group>"; };
-		1861666F17DB846400ECFA5C /* UIWindow+RESideMenuExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+RESideMenuExtensions.m"; sourceTree = "<group>"; };
 		1861668117DBA3F500ECFA5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1861668417DBA59300ECFA5C /* UIColor+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Addition.h"; sourceTree = "<group>"; };
 		1861668517DBA59300ECFA5C /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
@@ -353,8 +331,6 @@
 		18C0B3C318B26148000B67EB /* AZNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZNewsDetailViewController.h; path = News/AZNewsDetailViewController.h; sourceTree = "<group>"; };
 		18C0B3C418B26148000B67EB /* AZNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZNewsDetailViewController.m; path = News/AZNewsDetailViewController.m; sourceTree = "<group>"; };
 		18C0B3C518B26148000B67EB /* AZNewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZNewsDetailViewController.xib; path = News/AZNewsDetailViewController.xib; sourceTree = "<group>"; };
-		18D74AF017E22E670019C257 /* IZValueSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IZValueSelectorView.h; sourceTree = "<group>"; };
-		18D74AF117E22E670019C257 /* IZValueSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IZValueSelectorView.m; sourceTree = "<group>"; };
 		18D90F5618B8B78C00E0ADDB /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Controller/BaseViewController.h; sourceTree = "<group>"; };
 		18D90F5718B8B78C00E0ADDB /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Controller/BaseViewController.m; sourceTree = "<group>"; };
 		18D90F5818B8B78C00E0ADDB /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewController.xib; path = Controller/BaseViewController.xib; sourceTree = "<group>"; };
@@ -509,31 +485,8 @@
 				18EDE815188ABCCD00F31288 /* ImageHelper */,
 				18EDE7F3188A52A700F31288 /* AZSideMenu */,
 				182EEB521802A33D007E8946 /* PopoverView */,
-				18D74AEF17E22E670019C257 /* IZValueSelectorView */,
-				1861666117DB846400ECFA5C /* RESideMenu */,
 			);
 			path = Vendor;
-			sourceTree = "<group>";
-		};
-		1861666117DB846400ECFA5C /* RESideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				1861666217DB846400ECFA5C /* AccelerationAnimation.h */,
-				1861666317DB846400ECFA5C /* AccelerationAnimation.m */,
-				1861666417DB846400ECFA5C /* Evaluate.h */,
-				1861666517DB846400ECFA5C /* Evaluate.m */,
-				1861666617DB846400ECFA5C /* REBackgroundView.h */,
-				1861666717DB846400ECFA5C /* REBackgroundView.m */,
-				1861666817DB846400ECFA5C /* RESideMenu.h */,
-				1861666917DB846400ECFA5C /* RESideMenu.m */,
-				1861666A17DB846400ECFA5C /* RESideMenuCell.h */,
-				1861666B17DB846400ECFA5C /* RESideMenuCell.m */,
-				1861666C17DB846400ECFA5C /* RESideMenuItem.h */,
-				1861666D17DB846400ECFA5C /* RESideMenuItem.m */,
-				1861666E17DB846400ECFA5C /* UIWindow+RESideMenuExtensions.h */,
-				1861666F17DB846400ECFA5C /* UIWindow+RESideMenuExtensions.m */,
-			);
-			path = RESideMenu;
 			sourceTree = "<group>";
 		};
 		1861668317DBA59300ECFA5C /* Helper */ = {
@@ -861,15 +814,6 @@
 			name = News;
 			sourceTree = "<group>";
 		};
-		18D74AEF17E22E670019C257 /* IZValueSelectorView */ = {
-			isa = PBXGroup;
-			children = (
-				18D74AF017E22E670019C257 /* IZValueSelectorView.h */,
-				18D74AF117E22E670019C257 /* IZValueSelectorView.m */,
-			);
-			path = IZValueSelectorView;
-			sourceTree = "<group>";
-		};
 		18EC473318B507980015DFEE /* UMAnalytics_Sdk_2.2.1.OpenUDID */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,16 +1098,11 @@
 				186B2A1818BA4CB2000EC4A3 /* LibListHistoryViewController.m in Sources */,
 				186B2A1518BA4CB2000EC4A3 /* LibBaseViewController.m in Sources */,
 				189EF6DD17C2898F001B3C20 /* AppDelegate.m in Sources */,
-				1861667017DB846400ECFA5C /* AccelerationAnimation.m in Sources */,
 				186B29E818BA4C4E000EC4A3 /* EduSysHttpClient.m in Sources */,
-				1861667417DB846400ECFA5C /* RESideMenuCell.m in Sources */,
 				18B7A0B818B2111D009B1F7E /* UIButton+Bootstrap.m in Sources */,
-				1861667117DB846400ECFA5C /* Evaluate.m in Sources */,
 				186B29D118BA4C4E000EC4A3 /* EduBaseViewController.m in Sources */,
 				18A3FBC517C35010007E60BD /* LoginViewController.m in Sources */,
-				1861667517DB846400ECFA5C /* RESideMenuItem.m in Sources */,
 				186B2A1B18BA4CB2000EC4A3 /* LibListNowCell.m in Sources */,
-				1861667617DB846400ECFA5C /* UIWindow+RESideMenuExtensions.m in Sources */,
 				186B2A2118BA4CB2000EC4A3 /* LibSearchBooksDetailCell.m in Sources */,
 				186B29EF18BA4C4E000EC4A3 /* EduSysMarksViewController.m in Sources */,
 				186B29E218BA4C4E000EC4A3 /* EduSysEmptyClassroomViewController.m in Sources */,
@@ -1173,7 +1112,6 @@
 				186B2A1618BA4CB2000EC4A3 /* LibListHistoryCell.m in Sources */,
 				186B2A1F18BA4CB2000EC4A3 /* LibSearchBooksCell.m in Sources */,
 				18B7A0C118B21403009B1F7E /* AZNewsListViewController.m in Sources */,
-				1861667317DB846400ECFA5C /* RESideMenu.m in Sources */,
 				186B2A2318BA4CB2000EC4A3 /* LibSearchBooksDetailViewController.m in Sources */,
 				186B2A2A18BA4E3C000EC4A3 /* CardStyleView.m in Sources */,
 				1861668B17DBA59300ECFA5C /* UIImage+Tint.m in Sources */,
@@ -1181,7 +1119,6 @@
 				18EDE81E188AC62900F31288 /* UIImage+ScreenShot.m in Sources */,
 				18B7A0C618B21545009B1F7E /* AZNewsHttpClient.m in Sources */,
 				186B29F118BA4C4E000EC4A3 /* EduSysPickClassInfoCell.m in Sources */,
-				1861667217DB846400ECFA5C /* REBackgroundView.m in Sources */,
 				1861668A17DBA59300ECFA5C /* UIColor+Addition.m in Sources */,
 				186B2A1A18BA4CB2000EC4A3 /* LibHttpClient.m in Sources */,
 				18B7A0B518B21106009B1F7E /* UIWebView+Addition.m in Sources */,
@@ -1209,7 +1146,6 @@
 				186B299118BA4487000EC4A3 /* RootViewController.m in Sources */,
 				186B29F318BA4C4E000EC4A3 /* EduSysPickClassInfoViewController.m in Sources */,
 				18443CA718B6FA33006C4E6B /* AboutViewController.m in Sources */,
-				18D74AF217E22E670019C257 /* IZValueSelectorView.m in Sources */,
 				186B2A2518BA4CB2000EC4A3 /* LibSearchBooksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
