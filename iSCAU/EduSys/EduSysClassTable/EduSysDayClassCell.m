@@ -82,6 +82,7 @@ static NSString *TEACHER = @"teacher";
         frame.origin.y += size.height / 2;
         self.sepView.frame = frame;
     }
+    NSLog(@"hei %f", size.height);
     
     self.imgIndicator.image = [UIImage imageWithColor:[Tool indicatorColorAtIndex:index]];
     

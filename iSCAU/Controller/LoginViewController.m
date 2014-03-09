@@ -14,6 +14,8 @@
 
 NSString * const SelectServerNotification = @"SelectServerNotification";
 NSString * const SelectServerKey = @"SelectServerKey";
+NSString * const ExperienceAccount = @"ilovescau";
+NSString * const ExperiencePwd = @"ilovescau";
 
 @interface LoginViewController ()
 
@@ -102,6 +104,12 @@ NSString * const SelectServerKey = @"SelectServerKey";
     serverSelectViewController.selectionKey = SelectServerKey;
     serverSelectViewController.selections = @[@"1", @"2", @"3", @"4", @"5", @"6"];
     [self.navigationController pushViewController:serverSelectViewController animated:YES];
+}
+
+- (IBAction)experienceAccount:(id)sender {
+    self.txtStuNum.text = ExperienceAccount;
+    self.txtStuPwd.text = ExperiencePwd;
+    [self save];
 }
 
 - (void)didSelectedServer:(NSNotification *)notification {

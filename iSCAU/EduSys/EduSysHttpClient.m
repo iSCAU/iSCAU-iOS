@@ -40,7 +40,7 @@
         if (httpCode == EduUsernameError || httpCode == EduPasswordError) {
             [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION object:nil userInfo:@{ kNotice : @"账号或密码错误哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) }];
         } else if (httpCode == ServerError) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION object:nil userInfo:@{ kNotice : @"啊..服务器挂了..", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) }];
+            [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION object:nil userInfo:@{ kNotice : @"服务器挂了..换个接入点试试吧", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) }];
         } else if (httpCode == NullError) {
             [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION object:nil userInfo:@{ kNotice : @"没找到相关信息哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) }];
         }
