@@ -30,6 +30,7 @@ NSString * const ExperiencePwd = @"ilovescau";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.isShonwByPresent = NO;
     }
     return self;
 }
@@ -46,7 +47,7 @@ NSString * const ExperiencePwd = @"ilovescau";
         btnClose.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     }
     [btnClose setImage:[[UIImage imageNamed:@"BackButton.png"] imageWithTintColor:APP_DELEGATE.tintColor] forState:UIControlStateNormal];
-    [btnClose addTarget:self action:@selector(backToMenu) forControlEvents:UIControlEventTouchUpInside];
+    [btnClose addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *closeBarBtn = [[UIBarButtonItem alloc] initWithCustomView:btnClose];
     self.navigationItem.leftBarButtonItem = closeBarBtn;
 
@@ -67,9 +68,13 @@ NSString * const ExperiencePwd = @"ilovescau";
     });
 }
 
-- (void)backToMenu {
-    [self resignAllFirstResponder];
-    [[AZSideMenuViewController shareMenu] openMenuAnimated];
+- (void)back {
+    if (self.isShonwByPresent) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self resignAllFirstResponder];
+        [[AZSideMenuViewController shareMenu] openMenuAnimated];
+    }
 }
 
 - (void)didReceiveMemoryWarning

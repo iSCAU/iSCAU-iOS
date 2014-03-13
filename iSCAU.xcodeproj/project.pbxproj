@@ -149,6 +149,7 @@
 		18EDE81E188AC62900F31288 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDE81D188AC62900F31288 /* UIImage+ScreenShot.m */; };
 		18EDE820188AD16200F31288 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EDE81F188AD16200F31288 /* Accelerate.framework */; };
 		E1278ACE18D0176E00177DFD /* BaseHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1278ACD18D0176E00177DFD /* BaseHttpClient.m */; };
+		E1278ADE18D1F66C00177DFD /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1278ADD18D1F66C00177DFD /* Reveal.framework */; };
 		EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55935E4A02947EE81BFC401 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -372,6 +373,7 @@
 		A55935E4A02947EE81BFC401 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1278ACC18D0176E00177DFD /* BaseHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseHttpClient.h; path = iSCAU/Common/BaseHttpClient.h; sourceTree = SOURCE_ROOT; };
 		E1278ACD18D0176E00177DFD /* BaseHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseHttpClient.m; path = iSCAU/Common/BaseHttpClient.m; sourceTree = SOURCE_ROOT; };
+		E1278ADD18D1F66C00177DFD /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		F3C2D518F763477189F16CF2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -383,6 +385,7 @@
 				18EDE820188AD16200F31288 /* Accelerate.framework in Frameworks */,
 				1861668217DBA3F500ECFA5C /* QuartzCore.framework in Frameworks */,
 				189EF6CD17C2898F001B3C20 /* UIKit.framework in Frameworks */,
+				E1278ADE18D1F66C00177DFD /* Reveal.framework in Frameworks */,
 				18EC473718B507980015DFEE /* libMobClickLibrary.a in Frameworks */,
 				189EF6CF17C2898F001B3C20 /* Foundation.framework in Frameworks */,
 				18443CB018B6FCA8006C4E6B /* libUMFeedback.a in Frameworks */,
@@ -480,6 +483,7 @@
 		1861666017DB846400ECFA5C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				E1278ADD18D1F66C00177DFD /* Reveal.framework */,
 				18954FAD18B7574B009F28AF /* ImageCropper */,
 				18443CA918B6FCA8006C4E6B /* UMFeedback_iOS_1.4 */,
 				18EC473318B507980015DFEE /* UMAnalytics_Sdk_2.2.1.OpenUDID */,
@@ -1269,6 +1273,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/iSCAU/Vendor",
+					"/Users/alvin/Desktop/百度云同步盘/Code/iSCAU/iSCAU/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSCAU/iSCAU-Prefix.pch";
@@ -1296,6 +1301,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/iSCAU/Vendor",
+					"/Users/alvin/Desktop/百度云同步盘/Code/iSCAU/iSCAU/Vendor",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSCAU/iSCAU-Prefix.pch";

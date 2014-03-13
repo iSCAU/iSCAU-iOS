@@ -58,8 +58,7 @@
         return;
     }
 
-    if ([Tool stuNum].length < 1 || [Tool stuPwd].length < 1) {
-        SHOW_NOTICE_HUD(@"请先填写对应账号密码哦");
+    if (![self EduAccountValidate]) {
         return;
     }
 
@@ -68,9 +67,10 @@
     [[EduSysHttpClient shareInstance] 
      eduSysGetPickClassInfoSuccess:^(NSData *responseData, int httpCode){
          self.isReloading = NO;
-         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
-         if (httpCode == 200) {
+         
+         if (httpCode == RequestSuccess) {
              HIDE_ALL_HUD;
+             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
              self.pickClassInfos = [dict objectForKey:@"pickclassinfos"];
              [self.pickClassInfoTable reloadData];
          }

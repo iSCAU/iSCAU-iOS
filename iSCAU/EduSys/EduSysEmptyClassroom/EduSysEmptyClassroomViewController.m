@@ -113,13 +113,12 @@
     }
 }
 
-- (void)refreshParameters {
-    if ([Tool stuNum].length < 1 || [Tool stuPwd].length < 1) {
-        SHOW_NOTICE_HUD(@"请先填写对应账号密码哦");
+- (void)refreshParameters {    
+    if (self.isReloading) {
         return;
     }
     
-    if (self.isReloading) {
+    if (![self EduAccountValidate]) {
         return;
     }
     

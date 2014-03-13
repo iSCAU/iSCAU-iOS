@@ -66,8 +66,7 @@
 }
 
 - (void)reloadData {
-    if ([Tool stuNum].length < 1 || [Tool libPwd].length < 1) {
-        SHOW_NOTICE_HUD(@"请先填写对应账号密码哦");
+    if (![self LibAccountValidate]) {
         return;
     }
     if (self.isReloading) {

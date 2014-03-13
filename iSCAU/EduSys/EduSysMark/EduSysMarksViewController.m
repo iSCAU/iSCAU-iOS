@@ -146,8 +146,7 @@ static NSString *GRADE_POINT = @"grade_point";
 - (void)updateParams:(id)sender {
     [self hideParamsView];
     
-    if ([Tool stuNum].length < 1 || [Tool stuPwd].length < 1) {
-        SHOW_NOTICE_HUD(@"请先填写对应账号密码哦");
+    if (![self EduAccountValidate]) {
         return;
     }
     

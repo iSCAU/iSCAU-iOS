@@ -42,13 +42,15 @@
         NSInteger httpCode = [weekRequest responseStatusCode];
         
         if (httpCode == LibUsernamePasswordError) {
-            NSDictionary *dict = @{ kNotice : @"账号或密码错误哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
-            POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
-            
+            NSDictionary *dict = @{ kNotice : @"账号或密码错误哦" };
+            POST_NOTIFICATION(SUGGEST_LOGIN_AGAIN_NOTIFICATION, dict);
+            POST_NOTIFICATION(HIDE_NOTICE_NOTIFICATION, nil);
+
         } else if (httpCode == ServerError) {
-            NSDictionary *dict = @{ kNotice : @"啊..服务器挂了..", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
-            POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
-            
+            NSDictionary *dict = @{ kNotice : @"啊..服务器挂了.." };
+            POST_NOTIFICATION(SUGGEST_LOGIN_AGAIN_NOTIFICATION, dict);
+            POST_NOTIFICATION(HIDE_NOTICE_NOTIFICATION, nil);
+
         } else if (httpCode == NullError) {
             NSDictionary *dict = @{ kNotice : @"没找到相关信息哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
             POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
@@ -83,7 +85,6 @@
                         success:(SuccessedBlock)success
                         failure:(ErrorBlock)failure {
     NSString *urlString = [NSString stringWithFormat:@"%@/lib/search/%@/%d", HOST_NAME, [Tool safeBase64Encode:title], page];
-    NSLog(@"%@", urlString);
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
 

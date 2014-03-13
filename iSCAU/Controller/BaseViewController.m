@@ -8,8 +8,15 @@
 
 #import "BaseViewController.h"
 #import "MobClick.h"
+#import "LoginViewController.h"
 
-@interface BaseViewController ()
+typedef NS_ENUM(NSInteger, AlertViewTag) {
+    kUMNoticeAlertTag = 0,
+    kUMUpdateAlertTag,
+    kLoginAgainAlertTag
+};
+
+@interface BaseViewController () <UIAlertViewDelegate>
 
 @end
 
@@ -24,6 +31,13 @@
     return self;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UMOnlineConfigDidFinishedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:SUGGEST_LOGIN_AGAIN_NOTIFICATION];
+    [[NSNotificationCenter defaultCenter] removeObserver:SHOW_NOTICE_NOTIFICATION];
+    [[NSNotificationCenter defaultCenter] removeObserver:HIDE_NOTICE_NOTIFICATION];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,8 +46,11 @@
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
     
-    // 友盟通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onlineConfigCallBack:) name:UMOnlineConfigDidFinishedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginAgainSuggestion:) name:SUGGEST_LOGIN_AGAIN_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNotice:) name:SHOW_NOTICE_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideNotice:) name:HIDE_NOTICE_NOTIFICATION object:nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,19 +59,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNotice:) name:SHOW_NOTICE_NOTIFICATION object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideNotice:) name:HIDE_NOTICE_NOTIFICATION object:nil];
+#pragma mark - Login agant
+
+- (void)showLoginAgainSuggestion:(NSNotification *)notification 
+{
+    NSDictionary *userInfo = notification.userInfo;
+    if (userInfo[kNotice]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" 
+                                                        message:userInfo[kNotice] 
+                                                       delegate:self 
+                                              cancelButtonTitle:@"取消" 
+                                              otherButtonTitles:@"好的", nil];
+        alert.tag = kLoginAgainAlertTag;
+        [alert show];
+    }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:SHOW_NOTICE_NOTIFICATION];
-    [[NSNotificationCenter defaultCenter] removeObserver:HIDE_NOTICE_NOTIFICATION];
+- (void)presentLoginViewController {
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.isShonwByPresent = YES;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    [self.parentViewController presentViewController:nav animated:YES completion:nil];
 }
 
-- (void)showNotice:(NSNotification *)notification {
+#pragma mark - Notice
+
+- (void)showNotice:(NSNotification *)notification 
+{
     NSDictionary *info = notification.userInfo;
     
     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -73,13 +104,15 @@
     }
 }
 
-- (void)hideNotice:(NSNotification *)notification {
+- (void)hideNotice:(NSNotification *)notification 
+{
     HIDE_ALL_HUD;
 }
 
 #pragma mark - UMeng notification
 
-- (void)onlineConfigCallBack:(NSNotification *)notification {
+- (void)onlineConfigCallBack:(NSNotification *)notification 
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UMOnlineConfigDidFinishedNotification object:nil];
     
     // 公告
@@ -88,7 +121,7 @@
         NSString *notification = [[NSUserDefaults standardUserDefaults] objectForKey:NOTIFICATION];
         if (![note isEqualToString:notification]) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"公告" message:note delegate:self cancelButtonTitle:@"好的" otherButtonTitles:@"不再显示", nil];
-            alert.tag = 1;
+            alert.tag = kUMNoticeAlertTag;
             [alert show];
         }
     }
@@ -101,22 +134,25 @@
         });
     } else if ([update isEqualToString:@"2"]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"有新版本可用" message:@"有重大更新，请立刻下载，点击\"好的\"后iSCAU将退出" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil];
-        alert.tag = 2;
+        alert.tag = kUMUpdateAlertTag;
         [alert show];
     }
 }
 
 #pragma mark - alert view delegate
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    // 公告不再显示
-    if (alertView.tag == 1 && buttonIndex == 1) {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == kUMNoticeAlertTag && buttonIndex == 1) {
+        // 公告不再显示
         NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
         [def removeObjectForKey:NOTIFICATION];
         [def setObject:[alertView message] forKey:NOTIFICATION];
         [def synchronize];
-    } else if (alertView.tag == 2 && buttonIndex == 0) {
+    } else if (alertView.tag == kUMUpdateAlertTag && buttonIndex == 0) {
         exit(0);
+    } else if (alertView.tag == kLoginAgainAlertTag && buttonIndex == 1) {
+        [self performSelector:@selector(presentLoginViewController) withObject:nil afterDelay:0.0];
     }
 }
 

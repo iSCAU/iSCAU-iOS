@@ -10,6 +10,7 @@
 
 @interface LoginViewController : UIViewController
 
+@property (nonatomic, assign) BOOL isShonwByPresent;
 @property (nonatomic, weak) IBOutlet UITextField  *txtStuNum;
 @property (nonatomic, weak) IBOutlet UITextField  *txtStuPwd;
 @property (nonatomic, weak) IBOutlet UITextField  *txtLibPwd;

@@ -38,7 +38,6 @@ int main(int argc, char *argv[])
     @autoreleasepool {
         [UI7Kit patchIfNeeded];
         [UI7Button patch];
-//        [[UI7Kit kit] setTintColor:[UIColor colorWithR:66 g:96 b:153 a:1]];
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

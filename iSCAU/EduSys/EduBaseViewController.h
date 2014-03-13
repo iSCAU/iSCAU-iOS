@@ -11,4 +11,6 @@
 
 @interface EduBaseViewController : BaseViewController
 
+- (BOOL)EduAccountValidate;
+
 @end

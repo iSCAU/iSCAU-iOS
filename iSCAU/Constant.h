@@ -24,12 +24,13 @@ typedef void(^ErrorBlock)(NSData *responseData, int httpCode);
 
 // Notification
 #define kDefaultHideNoticeIntervel 1.5
-#define SHOW_NOTICE_NOTIFICATION @"SHOW_NOTICE_NOTIFICATION"
-#define HIDE_NOTICE_NOTIFICATION @"HIDE_NOTICE_NOTIFICATION"
-#define kNotice @"Notice"
-#define kHideNoticeIntervel @"HideNoticeIntervel"
-#define kDefaultErrorNotice @"加载失败,请稍后再试试.."
-#define NOTIFICATION @"notification"
+#define SHOW_NOTICE_NOTIFICATION                      @"SHOW_NOTICE_NOTIFICATION"
+#define SUGGEST_LOGIN_AGAIN_NOTIFICATION              @"SUGGEST_LOGIN_AGAIN_NOTIFICATION"
+#define HIDE_NOTICE_NOTIFICATION                      @"HIDE_NOTICE_NOTIFICATION"
+#define kNotice                                       @"Notice"
+#define kHideNoticeIntervel                           @"HideNoticeIntervel"
+#define kDefaultErrorNotice                           @"加载失败,请稍后再试试.."
+#define NOTIFICATION                                  @"notification"
 #define EDU_SYS_EMPTY_CLASSROOM_SELECTED_NOTIFICATION @"EDU_SYS_EMPTY_CLASSROOM_SELECTED_NOTIFICATION"
 
 #define POST_NOTIFICATION(notificationName, infoDict) \

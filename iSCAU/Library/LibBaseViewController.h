@@ -11,4 +11,6 @@
 
 @interface LibBaseViewController : BaseViewController
 
+- (BOOL)LibAccountValidate;
+
 @end

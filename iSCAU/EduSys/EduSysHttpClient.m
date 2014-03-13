@@ -53,12 +53,14 @@
         NSInteger httpCode = [weekRequest responseStatusCode];
         
         if (httpCode == EduUsernameError || httpCode == EduPasswordError) {
-            NSDictionary *dict = @{ kNotice : @"账号或密码错误哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
-            POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
+            NSDictionary *dict = @{ kNotice : @"账号或密码错误哦，要重新登录吗？" };
+            POST_NOTIFICATION(SUGGEST_LOGIN_AGAIN_NOTIFICATION, dict);
+            POST_NOTIFICATION(HIDE_NOTICE_NOTIFICATION, nil);
             
         } else if (httpCode == ServerError) {
-            NSDictionary *dict = @{ kNotice : @"服务器挂了..换个接入点试试吧", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
-            POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
+            NSDictionary *dict = @{ kNotice : @"服务器挂了..换个接入点试试吧" };
+            POST_NOTIFICATION(SUGGEST_LOGIN_AGAIN_NOTIFICATION, dict);
+            POST_NOTIFICATION(HIDE_NOTICE_NOTIFICATION, nil);
             
         } else if (httpCode == NullError) {
             NSDictionary *dict = @{ kNotice : @"没找到相关信息哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
@@ -83,7 +85,8 @@
                           pwd:(NSString *)pwd
                        server:(NSString *)server
                       success:(SuccessedBlock)success
-                      failure:(ErrorBlock)failure {
+                      failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/edusys/login/%@/%@/%@", HOST_NAME, stuNum, [Tool safeBase64Encode:pwd], server];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
@@ -94,13 +97,15 @@
 }
 
 - (void)eduSysGetExamSuccess:(SuccessedBlock)success
-                     failure:(ErrorBlock)failure {
+                     failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/edusys/exam/%@/%@/%@", HOST_NAME, [Tool stuNum], [Tool safeBase64Encode:[Tool stuPwd]], [Tool server]];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
 
 - (void)eduSysGetMarksInfoSuccess:(SuccessedBlock)success
-                          failure:(ErrorBlock)failure {
+                          failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/edusys/params/goal/%@/%@/%@", HOST_NAME, [Tool stuNum], [Tool safeBase64Encode:[Tool stuPwd]], [Tool server]];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
@@ -113,7 +118,9 @@
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
 
-- (void)eduSysGetPickClassInfoSuccess:(SuccessedBlock)success failure:(ErrorBlock)failure {
+- (void)eduSysGetPickClassInfoSuccess:(SuccessedBlock)success 
+                              failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/edusys/pickclassinfo/%@/%@/%@", HOST_NAME, [Tool stuNum], [Tool safeBase64Encode:[Tool stuPwd]], [Tool server]];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
@@ -126,12 +133,14 @@
                                              dsz:(NSString *)dsz 
                                              sjd:(NSString *)sjd  
                                          success:(SuccessedBlock)success 
-                                         failure:(ErrorBlock)failure {
+                                         failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/edusys/emptyclassroom/%@/%@/%@/%@/%@/%@/%@/%@/%@/%@", HOST_NAME, [Tool stuNum], [Tool safeBase64Encode:[Tool stuPwd]], [Tool server], xq, jslb, ddlKsz, ddlJsz, xqj, dsz, sjd];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
 
-- (void)eduSysGetEmptyClassroomParamsSuccess:(SuccessedBlock)success failure:(ErrorBlock)failure {
+- (void)eduSysGetEmptyClassroomParamsSuccess:(SuccessedBlock)success failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/edusys/params/emptyclassroom/%@/%@/%@", HOST_NAME, [Tool stuNum], [Tool safeBase64Encode:[Tool stuPwd]], [Tool server]];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
