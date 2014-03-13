@@ -80,23 +80,24 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION 
                                                         object:nil 
                                                       userInfo:@{ kNotice : @"请稍等.." }];
-    [LibHttpClient libRenewWithBarcode:self.bookDict[BARCODE_NUMBER]
-                             checkCode:self.bookDict[CHECK_CODE] 
-                               Success:^(NSData *responseData, int httpCode) {
-                                   if (httpCode == 200) {
-                                       [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION 
-                                                                                           object:nil 
-                                                                                         userInfo:@{ 
-                                                                                                    kNotice : @"续借成功!", 
-                                                                                                    kHideNoticeIntervel : @(1) 
-                                                                                                    }
-                                        ];
-                                   }
-                               } failure:^(NSData *responseData, int httpCode) {
-                                   [[NSNotificationCenter defaultCenter] postNotificationName:HIDE_NOTICE_NOTIFICATION 
-                                                                                       object:nil 
-                                                                                     userInfo:nil];
-                               }];
+    [[LibHttpClient shareInstance] 
+     libRenewWithBarcode:self.bookDict[BARCODE_NUMBER]
+     checkCode:self.bookDict[CHECK_CODE] 
+     Success:^(NSData *responseData, int httpCode) {
+        if (httpCode == 200) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:SHOW_NOTICE_NOTIFICATION 
+                                                                object:nil 
+                                                              userInfo:@{ 
+                                                                        kNotice : @"续借成功!", 
+                                                                        kHideNoticeIntervel : @(1) 
+                                                                        }
+             ];
+        }
+     } failure:^(NSData *responseData, int httpCode) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:HIDE_NOTICE_NOTIFICATION 
+                                                            object:nil 
+                                                          userInfo:nil];
+     }];
 }
 
 @end

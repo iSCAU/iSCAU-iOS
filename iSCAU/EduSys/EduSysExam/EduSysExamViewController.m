@@ -76,17 +76,19 @@
     
     SHOW_WATING_HUD;
     self.isReloading = YES;
-    [EduSysHttpClient eduSysGetExamSuccess:^(NSData *responseData, int httpCode){
-        self.isReloading = NO;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
-        if (httpCode == 200) {
-            HIDE_ALL_HUD;
-            self.examInfoArray = dict[@"exam"];
-            [self.tableExamInfo reloadData];
-        }
-    }failure:^(NSData *responseData, int httpCode){
-        self.isReloading = NO;
-    }];
+    [[EduSysHttpClient shareInstance]
+     eduSysGetExamSuccess:^(NSData *responseData, int httpCode){
+         self.isReloading = NO;
+         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
+         if (httpCode == 200) {
+             HIDE_ALL_HUD;
+             self.examInfoArray = dict[@"exam"];
+             [self.tableExamInfo reloadData];
+         }
+     }
+     failure:^(NSData *responseData, int httpCode){
+         self.isReloading = NO;
+     }];
 }
 
 #pragma mark - table view delegate

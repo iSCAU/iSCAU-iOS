@@ -10,14 +10,6 @@
 
 extern NSString * const UM_CODE;
 
-extern NSInteger const NullError;
-extern NSInteger const EduUsernameError;
-extern NSInteger const EduPasswordError;
-extern NSInteger const LibUsernamePasswordError;
-extern NSInteger const MaxRenewLimit;
-extern NSInteger const CardUsernamePasswordError;
-extern NSInteger const ServerError;
-
 // ----- Lib
 extern NSString *BARCODE_NUMBER;
 extern NSString *BORROW_DATE;

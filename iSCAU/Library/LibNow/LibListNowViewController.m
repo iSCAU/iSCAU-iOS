@@ -69,20 +69,21 @@
     }
     self.isReloading = YES;
     SHOW_WATING_HUD;
-    [LibHttpClient libListNowSuccess:^(NSData *responseData, NSInteger httpCode){
-        self.isReloading = NO;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-        if (httpCode == 200) {
-            HIDE_ALL_HUD;
-            NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]];
-            if (temp.count > 0) {
-                self.booksArray = temp;
-                [self.tableListNow reloadData];
-            }
-        }
-    } failure:^(NSData *responseData, NSInteger httpCode){
-        self.isReloading = NO;
-    }];
+    [[LibHttpClient shareInstance] 
+     libListNowSuccess:^(NSData *responseData, NSInteger httpCode){
+         self.isReloading = NO;
+         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+         if (httpCode == 200) {
+             HIDE_ALL_HUD;
+             NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]];
+             if (temp.count > 0) {
+                 self.booksArray = temp;
+                 [self.tableListNow reloadData];
+             }
+         }
+     } failure:^(NSData *responseData, NSInteger httpCode){
+         self.isReloading = NO;
+     }];
 }
 
 - (void)didReceiveMemoryWarning

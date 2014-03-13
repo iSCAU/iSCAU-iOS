@@ -12,24 +12,6 @@
 #import "EduSysClassTableViewController.h"
 #import "RootViewController.h"
 
-/**
- * 200:
- * 404: null_error
- * 405: username_error(edu)
- * 406: password_error(edu)
- * 407: username_password_error(lib)
- * 408: maxrenew_limit(lib)    // 超过最大续借额
- * 409: username_password_error(card)
- * 500: server_error
- */
-NSInteger const NullError = 404;
-NSInteger const EduUsernameError = 405;
-NSInteger const EduPasswordError = 406;
-NSInteger const LibUsernamePasswordError = 407;
-NSInteger const MaxRenewLimit = 408;
-NSInteger const CardUsernamePasswordError = 409;
-NSInteger const ServerError = 500;
-
 // ----- lib
 NSString *BARCODE_NUMBER = @"barcode_number";
 NSString *BORROW_DATE = @"borrow_date";

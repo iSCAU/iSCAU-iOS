@@ -191,18 +191,20 @@
         return;
     }
     SHOW_WATING_HUD;
-    [EduSysHttpClient eduSysGetClassTableSuccess:^(NSData *responseData, NSInteger httpCode){
-        NSDictionary *classesInfo = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
-        if (httpCode == 200) {
-            HIDE_ALL_HUD;
-            if (classesInfo[@"termStartDate"]) {
-                [Tool setSemesterStartDate:classesInfo[@"termStartDate"]];
-                [self setNavTitle];
-            }
-            [self parseClassesData:classesInfo];
-            [self saveClassesDataToLocal:classesInfo];
-        }
-    } failure:nil];
+    [[EduSysHttpClient shareInstance] 
+     eduSysGetClassTableSuccess:^(NSData *responseData, NSInteger httpCode){
+         NSDictionary *classesInfo = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
+         if (httpCode == 200) {
+             HIDE_ALL_HUD;
+             if (classesInfo[@"termStartDate"]) {
+                 [Tool setSemesterStartDate:classesInfo[@"termStartDate"]];
+                 [self setNavTitle];
+             }
+             [self parseClassesData:classesInfo];
+             [self saveClassesDataToLocal:classesInfo];
+         }
+     } 
+     failure:nil];
 }
 
 - (void)editClassTable {        

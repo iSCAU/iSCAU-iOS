@@ -32,6 +32,10 @@ typedef void(^ErrorBlock)(NSData *responseData, int httpCode);
 #define NOTIFICATION @"notification"
 #define EDU_SYS_EMPTY_CLASSROOM_SELECTED_NOTIFICATION @"EDU_SYS_EMPTY_CLASSROOM_SELECTED_NOTIFICATION"
 
+#define POST_NOTIFICATION(notificationName, infoDict) \
+[[NSNotificationCenter defaultCenter] postNotificationName:(notificationName) object:nil userInfo:(infoDict)]
+
+// HUD
 #define HIDE_ALL_HUD [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 
 #define SHOW_WATING_HUD \
@@ -44,7 +48,7 @@ MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES]; \
 hud.labelText = (notice); \
 hud.mode = MBProgressHUDModeText; \
 dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, kDefaultHideNoticeIntervel * NSEC_PER_SEC); \
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){ \
+dispatch_after(popTime, dispatch_get_main_queue(), ^(void){ \
     [MBProgressHUD hideHUDForView:self.view animated:YES]; \
 });
 

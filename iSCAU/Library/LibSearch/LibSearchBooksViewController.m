@@ -174,53 +174,55 @@
 
     } else {
         SHOW_WATING_HUD;
-        [LibHttpClient libGetBookDetailWithAddress:self.books[row - 1][URL] success:^(NSData *responseData, int httpCode) {
-            NSDictionary *detailInfos = [NSJSONSerialization JSONObjectWithData:responseData 
-                                                                  options:kNilOptions
-                                                                    error:nil];
-            if (httpCode == 200 && detailInfos && detailInfos[@"details"]) {
-                HIDE_ALL_HUD;
-                LibSearchBooksDetailViewController *detailViewController = [[LibSearchBooksDetailViewController alloc] init];
-                if (detailInfos[@"details"] && [detailInfos[@"details"][0] isKindOfClass:[NSNull class]]) {
-                    SHOW_NOTICE_HUD(@"没有详细信息呢");
-                } else {
-                    detailViewController.detailInfos = detailInfos[@"details"];
-                    detailViewController.bookName = self.books[row - 1][TITLE];
-                    [self.navigationController pushViewController:detailViewController animated:YES];
-                }
-            }
-        } failure:nil];
+        [[LibHttpClient shareInstance] 
+         libGetBookDetailWithAddress:self.books[row - 1][URL] 
+         success:^(NSData *responseData, int httpCode) {
+             NSDictionary *detailInfos = [NSJSONSerialization JSONObjectWithData:responseData 
+                                                                         options:kNilOptions
+                                                                           error:nil];
+             if (httpCode == 200 && detailInfos && detailInfos[@"details"]) {
+                 HIDE_ALL_HUD;
+                 LibSearchBooksDetailViewController *detailViewController = [[LibSearchBooksDetailViewController alloc] init];
+                 if (detailInfos[@"details"] && [detailInfos[@"details"][0] isKindOfClass:[NSNull class]]) {
+                     SHOW_NOTICE_HUD(@"没有详细信息呢");
+                 } else {
+                     detailViewController.detailInfos = detailInfos[@"details"];
+                     detailViewController.bookName = self.books[row - 1][TITLE];
+                     [self.navigationController pushViewController:detailViewController animated:YES];
+                 }
+             }
+         } failure:nil];
     }
 }
 
 - (void)searchBook {
-    [LibHttpClient libSearchBooksWithTitle:bookName
-                                      page:currentPage
-                                   success:^(NSData *responseData, NSInteger httpCode){
-                                       NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-                                       isLoading = NO;
-                                       if (httpCode == 200) {
-                                           // 查找结果数
-                                           totalCount = [[dict objectForKey:@"count"] integerValue];
-                                           totalPage = totalCount / 10;
-                                           if ((totalCount % 10) > 0) totalPage++;
-                                           
-                                           if (isSearchingBooks) {
-                                               [self.books removeAllObjects];
-                                               self.books = nil;
-                                               self.books = [[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]];
-                                           } else {
-                                               [self.books addObjectsFromArray:[[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]]];
-                                           }
-                                           isSearchingBooks = NO;
-                                           [self.tableSearch reloadData];
-                                       }                                       
-                                   }
-                                   failure:^(NSData *responseData, NSInteger httpCode){
-                                       isSearchingBooks = NO;
-                                       isLoading = NO;
-                                   }
-     ];
+    [[LibHttpClient shareInstance]
+     libSearchBooksWithTitle:bookName
+     page:currentPage
+    success:^(NSData *responseData, NSInteger httpCode){
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+        isLoading = NO;
+        if (httpCode == 200) {
+            // 查找结果数
+            totalCount = [[dict objectForKey:@"count"] integerValue];
+            totalPage = totalCount / 10;
+            if ((totalCount % 10) > 0) totalPage++;
+            
+            if (isSearchingBooks) {
+                [self.books removeAllObjects];
+                self.books = nil;
+                self.books = [[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]];
+            } else {
+                [self.books addObjectsFromArray:[[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]]];
+            }
+            isSearchingBooks = NO;
+            [self.tableSearch reloadData];
+        }                                       
+    }
+    failure:^(NSData *responseData, NSInteger httpCode){
+        isSearchingBooks = NO;
+        isLoading = NO;
+    }];
 }
 
 #pragma mark - searchbar

@@ -152,22 +152,23 @@ static NSString *GRADE_POINT = @"grade_point";
     }
     
     SHOW_NOTICE_HUD(@"努力加载参数中...");
-    [EduSysHttpClient eduSysGetMarksInfoSuccess:^(NSData *responseData, NSInteger httpCode){
-        if (httpCode == 200) {
-            HIDE_ALL_HUD;
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-            NSArray *paramsArray = dict[kParams];
-            if (paramsArray == nil || paramsArray.count < 2) return;
-            self.schoolYearArray = paramsArray[0][kParamsValue];
-            self.semesterArray = paramsArray[1][kParamsValue];
-            
-            if (self.schoolYearArray && self.semesterArray) {
-                [Tool setSchoolYear:self.schoolYearArray];
-                [Tool setSemester:self.semesterArray];
-                [self setupParams];
-            }
-        }
-    } failure:nil];
+    [[EduSysHttpClient shareInstance]
+     eduSysGetMarksInfoSuccess:^(NSData *responseData, NSInteger httpCode){
+         if (httpCode == 200) {
+             HIDE_ALL_HUD;
+             NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+             NSArray *paramsArray = dict[kParams];
+             if (paramsArray == nil || paramsArray.count < 2) return;
+             self.schoolYearArray = paramsArray[0][kParamsValue];
+             self.semesterArray = paramsArray[1][kParamsValue];
+             
+             if (self.schoolYearArray && self.semesterArray) {
+                 [Tool setSchoolYear:self.schoolYearArray];
+                 [Tool setSemester:self.semesterArray];
+                 [self setupParams];
+             }
+         }
+     } failure:nil];
 }
 
 - (void)loadLocalMarks {    
@@ -191,19 +192,21 @@ static NSString *GRADE_POINT = @"grade_point";
         self.semesterIndex < self.semesterArray.count) {
         SHOW_WATING_HUD;
         self.isReloading = YES;
-        [EduSysHttpClient eduSysGetMarksWithYear:self.schoolYearArray[self.schoolYearIndex]
-                                           tearm:self.semesterArray[self.semesterIndex]
-                                         success:^(NSData *responseData, int httpCode){
-                                             self.isReloading = NO;
-                                             if (httpCode == 200) {
-                                                 HIDE_ALL_HUD;
-                                                 [self parseMarksInfo:responseData];
-                                                 [self saveMarksDataToLocal:responseData];
-                                             }
-                                         }
-                                         failure:^(NSData *responseData, int httpCode){
-                                             self.isReloading = NO;
-                                         }];
+        
+        [[EduSysHttpClient shareInstance] 
+         eduSysGetMarksWithYear:self.schoolYearArray[self.schoolYearIndex]
+         tearm:self.semesterArray[self.semesterIndex]
+         success:^(NSData *responseData, int httpCode){
+             self.isReloading = NO;
+             if (httpCode == 200) {
+                 HIDE_ALL_HUD;
+                 [self parseMarksInfo:responseData];
+                 [self saveMarksDataToLocal:responseData];
+             }
+         }
+         failure:^(NSData *responseData, int httpCode){
+             self.isReloading = NO;
+         }];
     }
 }
 

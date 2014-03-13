@@ -65,17 +65,18 @@
 
     SHOW_WATING_HUD;
     self.isReloading = YES;
-    [EduSysHttpClient eduSysGetPickClassInfoSuccess:^(NSData *responseData, int httpCode){
-        self.isReloading = NO;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
-        if (httpCode == 200) {
-            HIDE_ALL_HUD;
-            self.pickClassInfos = [dict objectForKey:@"pickclassinfos"];
-            [self.pickClassInfoTable reloadData];
-        }
-    }failure:^(NSData *responseData, int httpCode){
-        self.isReloading = NO;
-    }];
+    [[EduSysHttpClient shareInstance] 
+     eduSysGetPickClassInfoSuccess:^(NSData *responseData, int httpCode){
+         self.isReloading = NO;
+         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:NULL];
+         if (httpCode == 200) {
+             HIDE_ALL_HUD;
+             self.pickClassInfos = [dict objectForKey:@"pickclassinfos"];
+             [self.pickClassInfoTable reloadData];
+         }
+     } failure:^(NSData *responseData, int httpCode){
+         self.isReloading = NO;
+     }];
 }
 
 - (void)didReceiveMemoryWarning

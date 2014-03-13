@@ -12,6 +12,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
+#import "BaseHttpClient.h"
 #import "Constant.h"
 #import "UIColor+Addition.h"
 #import "Tool.h"

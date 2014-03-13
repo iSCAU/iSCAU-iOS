@@ -75,17 +75,18 @@
     }
     self.isReloading = YES;
     SHOW_WATING_HUD;
-    [LibHttpClient libListHistorySuccess:^(NSData *responseData, NSInteger httpCode){
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-        self.isReloading = NO;
-        HIDE_ALL_HUD;
-        if (httpCode == 200) {
-            self.booksArray = [[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]];
-            [self.tableListHistory reloadData];
-        }
-    }failure:^(NSData *responseData, NSInteger httpCode){
-        self.isReloading = NO;
-    }];
+    [[LibHttpClient shareInstance] 
+     libListHistorySuccess:^(NSData *responseData, NSInteger httpCode){
+         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+         self.isReloading = NO;
+         HIDE_ALL_HUD;
+         if (httpCode == 200) {
+             self.booksArray = [[NSMutableArray alloc] initWithArray:[dict objectForKey:@"books"]];
+             [self.tableListHistory reloadData];
+         }
+     }failure:^(NSData *responseData, NSInteger httpCode){
+         self.isReloading = NO;
+     }];
 }
 
 #pragma mark - table view delegate

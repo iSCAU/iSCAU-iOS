@@ -125,19 +125,20 @@
     
     self.isReloading = YES;
     SHOW_WATING_HUD;
-    [EduSysHttpClient eduSysGetEmptyClassroomParamsSuccess:^(NSData *responseData, int httpCode) {
-        self.isReloading = NO;
-        if (httpCode == 200) {
-            HIDE_ALL_HUD;
-            NSDictionary *params = [NSJSONSerialization JSONObjectWithData:responseData
+    [[EduSysHttpClient shareInstance] 
+     eduSysGetEmptyClassroomParamsSuccess:^(NSData *responseData, int httpCode) {
+         self.isReloading = NO;
+         if (httpCode == 200) {
+             HIDE_ALL_HUD;
+             NSDictionary *params = [NSJSONSerialization JSONObjectWithData:responseData
                                                                    options:kNilOptions 
                                                                      error:nil];
-            [self parseParams:params];
-            [self setupEmptyClassroomParams];
-        }
-    } failure:^(NSData *responseData, int httpCode) {
-        self.isReloading = NO;
-    }];
+             [self parseParams:params];
+             [self setupEmptyClassroomParams];
+         }
+     } failure:^(NSData *responseData, int httpCode) {
+         self.isReloading = NO;
+     }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -270,7 +271,7 @@
 
         SHOW_WATING_HUD;
         
-        [EduSysHttpClient 
+        [[EduSysHttpClient shareInstance] 
          eduSysGetEmptyClassroomInfoSuccessWithXQ:self.labXQ.text
                                               jslb:self.labJSLB.text
                                             ddlKsz:self.labKSZ.text

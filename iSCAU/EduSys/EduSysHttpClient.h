@@ -6,35 +6,34 @@
 //  Copyright (c) 2013年 Alvin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <ASIHTTPRequest/ASIHTTPRequest.h>
+#import "BaseHttpClient.h"
 
-@interface EduSysHttpClient : NSObject
+@interface EduSysHttpClient : BaseHttpClient
 
-+ (void)eduSysLoginWithStuNum:(NSString *)stuNum
+- (void)eduSysLoginWithStuNum:(NSString *)stuNum
                           pwd:(NSString *)pwd
                        server:(NSString *)server
                       success:(SuccessedBlock)success
                       failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetClassTableSuccess:(SuccessedBlock)success
+- (void)eduSysGetClassTableSuccess:(SuccessedBlock)success
                            failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetExamSuccess:(SuccessedBlock)success
+- (void)eduSysGetExamSuccess:(SuccessedBlock)success
                      failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetMarksInfoSuccess:(SuccessedBlock)success
+- (void)eduSysGetMarksInfoSuccess:(SuccessedBlock)success
                           failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetMarksWithYear:(NSString *)year
+- (void)eduSysGetMarksWithYear:(NSString *)year
                          tearm:(NSString *)term
                        success:(SuccessedBlock)success
                        failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetPickClassInfoSuccess:(SuccessedBlock)success
+- (void)eduSysGetPickClassInfoSuccess:(SuccessedBlock)success
                               failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetEmptyClassroomInfoSuccessWithXQ:(NSString *)xq 
+- (void)eduSysGetEmptyClassroomInfoSuccessWithXQ:(NSString *)xq 
                                             jslb:(NSString *)jslb 
                                           ddlKsz:(NSString *)ddlKsz 
                                           ddlJsz:(NSString *)ddlJsz
@@ -44,7 +43,7 @@
                                          success:(SuccessedBlock)success 
                                          failure:(ErrorBlock)failure;
 
-+ (void)eduSysGetEmptyClassroomParamsSuccess:(SuccessedBlock)success
+- (void)eduSysGetEmptyClassroomParamsSuccess:(SuccessedBlock)success
                                      failure:(ErrorBlock)failure;
 
 @end

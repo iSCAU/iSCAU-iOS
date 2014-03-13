@@ -148,6 +148,7 @@
 		18EDE81B188AC3E900F31288 /* UIImage+ImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDE81A188AC3E900F31288 /* UIImage+ImageWithColor.m */; };
 		18EDE81E188AC62900F31288 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EDE81D188AC62900F31288 /* UIImage+ScreenShot.m */; };
 		18EDE820188AD16200F31288 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EDE81F188AD16200F31288 /* Accelerate.framework */; };
+		E1278ACE18D0176E00177DFD /* BaseHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1278ACD18D0176E00177DFD /* BaseHttpClient.m */; };
 		EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55935E4A02947EE81BFC401 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -369,6 +370,8 @@
 		18EDE81D188AC62900F31288 /* UIImage+ScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScreenShot.m"; sourceTree = "<group>"; };
 		18EDE81F188AD16200F31288 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A55935E4A02947EE81BFC401 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1278ACC18D0176E00177DFD /* BaseHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseHttpClient.h; path = iSCAU/Common/BaseHttpClient.h; sourceTree = SOURCE_ROOT; };
+		E1278ACD18D0176E00177DFD /* BaseHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseHttpClient.m; path = iSCAU/Common/BaseHttpClient.m; sourceTree = SOURCE_ROOT; };
 		F3C2D518F763477189F16CF2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -727,6 +730,7 @@
 				189EF6DB17C2898F001B3C20 /* AppDelegate.h */,
 				189EF6DC17C2898F001B3C20 /* AppDelegate.m */,
 				1806EAF117C366960039A6B9 /* Constant.h */,
+				E1278ACF18D0177D00177DFD /* Common */,
 				186B299318BA4C4E000EC4A3 /* EduSys */,
 				186B29F518BA4CB2000EC4A3 /* Library */,
 				18B7A0C318B2140B009B1F7E /* News */,
@@ -869,6 +873,15 @@
 				18EDE81D188AC62900F31288 /* UIImage+ScreenShot.m */,
 			);
 			path = ImageHelper;
+			sourceTree = "<group>";
+		};
+		E1278ACF18D0177D00177DFD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E1278ACC18D0176E00177DFD /* BaseHttpClient.h */,
+				E1278ACD18D0176E00177DFD /* BaseHttpClient.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1141,6 +1154,7 @@
 				186B29E618BA4C4E000EC4A3 /* EduSysExamViewController.m in Sources */,
 				18EDE811188A970700F31288 /* AZSideMenuItem.m in Sources */,
 				186B29E018BA4C4E000EC4A3 /* EduSysEmptyClassroomSelectionViewController.m in Sources */,
+				E1278ACE18D0176E00177DFD /* BaseHttpClient.m in Sources */,
 				182EEB581802B093007E8946 /* PathHelper.m in Sources */,
 				18EDE814188AA3F900F31288 /* AZSideMenuCell.m in Sources */,
 				186B299118BA4487000EC4A3 /* RootViewController.m in Sources */,
