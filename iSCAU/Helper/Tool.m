@@ -210,6 +210,19 @@
     return date ? date : nil;
 }
 
+#pragma mark - View helper
+
++ (UITableViewCell *)loadMoreCellWithIdentifier:(NSString *)identifier
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityView.center = cell.contentView.center;
+    [activityView startAnimating];
+    [cell.contentView addSubview:activityView];
+    return cell;
+}
 
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Tool : NSObject
 
+// Config helpers
 + (NSInteger)OSVersion;
 + (CGSize)calculateSizeWithString:(NSString *)string
                              font:(UIFont *)font
@@ -33,7 +35,6 @@
 
 
 // User settings
-
 + (void)setStuNum:(NSString *)stuNum
         andStuPwd:(NSString *)stuPwd
         andLibPwd:(NSString *)libPwd
@@ -52,5 +53,9 @@
 + (void)setServer:(NSString *)server;
 + (void)setSemesterStartDate:(NSString *)startDate;
 + (NSString *)semesterStartDate;
+
+
+// View helper
++ (UITableViewCell *)loadMoreCellWithIdentifier:(NSString *)identifier;
 
 @end

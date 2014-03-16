@@ -18,7 +18,8 @@
 #define kPress  1002
 #define kSerial 1003
 
-@interface LibSearchBooksViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> {    
+@interface LibSearchBooksViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate> 
+{    
     NSInteger totalCount;
     NSInteger currentPage;
     NSInteger totalPage;
@@ -56,10 +57,10 @@
     totalPage = 0;
     
     if (IS_IPHONE4) {
-        self.view.frame = CGRectMake(0, 0, 320.0, 480 - 44 - 20.0);
+        self.view.frame = CGRectMake(0, 0, self.view.width, 480 - 44 - 20.0);
     }
     
-    self.books = [[NSMutableArray alloc] initWithCapacity:10];
+    self.books = [NSMutableArray array];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,7 +88,8 @@
 
 #pragma mark - table view delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if (indexPath.row == 0) {
         return 44;
     } else if (indexPath.row - 1 == self.books.count) {
@@ -97,11 +99,13 @@
     }
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return ((self.books.count < totalCount) ? self.books.count + 1 : self.books.count) + 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     int row = indexPath.row;
     if (row == 0) {
         static NSString *SearchBarIdentifier = @"SearchBarIdentifier";

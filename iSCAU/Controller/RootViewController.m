@@ -26,6 +26,9 @@
 #import "AZNewsListViewController.h"
 #import "ImageCropper.h"
 
+// CourseEvaluation
+#import "CESearchCourseViewController.h"
+
 // Other
 #import "AboutViewController.h"
 #import "LoginViewController.h"
@@ -124,6 +127,11 @@
                       infoBusAndTelphone
                       ];
     
+    
+    // 评课
+    AZSideMenuItem *courseEvaluation = [[AZSideMenuItem alloc] initWithTitle:@"评课" class:[CESearchCourseViewController class]];
+    
+    
     // 新闻
 //    AZSideMenuItem *news = [[AZSideMenuItem alloc] initWithTitle:@"校园新闻" class:[AZNewsListViewController class]];
     
@@ -141,7 +149,7 @@
         return viewController;
     }];
     
-    return [[NSArray alloc] initWithObjects:eduSys, lib, info, more, about, nil];
+    return [[NSArray alloc] initWithObjects:eduSys, lib, courseEvaluation, info, more, about, nil];
 }
 
 @end

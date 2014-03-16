@@ -14,6 +14,7 @@ typedef void(^ErrorBlock)(NSData *responseData, int httpCode);
 
 #define HOST_NAME @"http://115.28.144.49"
 #define LIB_DETAIL_HOST @"http://202.116.174.108:8080/opac/"
+#define COURSE_EVALUATION @"http://api.huanongbao.com/course_comments/index.php?s=/Api"
 
 #define SET_DEFAULT_BACKGROUND_COLOR(table) [(table) setBackgroundColor:[UIColor colorFromHexRGB:@"f2f0ed" alpha:1.0f]];
 #define RESOURCE_PATH(resourceName, type)   [[NSBundle mainBundle] pathForResource:(resourceName) ofType:(type)]

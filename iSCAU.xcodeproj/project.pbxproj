@@ -150,6 +150,20 @@
 		18EDE820188AD16200F31288 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EDE81F188AD16200F31288 /* Accelerate.framework */; };
 		E1278ACE18D0176E00177DFD /* BaseHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1278ACD18D0176E00177DFD /* BaseHttpClient.m */; };
 		E1278ADE18D1F66C00177DFD /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1278ADD18D1F66C00177DFD /* Reveal.framework */; };
+		E1278AEB18D30A5A00177DFD /* CEHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E1278AEA18D30A5A00177DFD /* CEHttpClient.m */; };
+		E1278AF418D30B7F00177DFD /* CourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E1278AF318D30B7F00177DFD /* CourseInfo.m */; };
+		E1278AF718D317AF00177DFD /* CEBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1278AF618D317AF00177DFD /* CEBaseViewController.m */; };
+		E134BDD918D4974A00548307 /* CECourseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDD418D4974A00548307 /* CECourseInfoCell.m */; };
+		E134BDDA18D4974A00548307 /* CECourseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E134BDD518D4974A00548307 /* CECourseInfoCell.xib */; };
+		E134BDDB18D4974A00548307 /* CESearchCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDD718D4974A00548307 /* CESearchCourseViewController.m */; };
+		E134BDDC18D4974A00548307 /* CESearchCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E134BDD818D4974A00548307 /* CESearchCourseViewController.xib */; };
+		E134BDE018D4977E00548307 /* CECourseCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDDE18D4977E00548307 /* CECourseCommentsViewController.m */; };
+		E134BDE118D4977E00548307 /* CECourseCommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E134BDDF18D4977E00548307 /* CECourseCommentsViewController.xib */; };
+		E134BDE418D4979900548307 /* CECourseCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDE318D4979900548307 /* CECourseCommentCell.m */; };
+		E134BDE618D497B600548307 /* CECourseCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E134BDE518D497B600548307 /* CECourseCommentCell.xib */; };
+		E134BDE918D49BC800548307 /* CourseComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDE818D49BC800548307 /* CourseComment.m */; };
+		E134BDED18D594B700548307 /* CECommentWritingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDEB18D594B700548307 /* CECommentWritingViewController.m */; };
+		E134BDEE18D594B700548307 /* CECommentWritingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E134BDEC18D594B700548307 /* CECommentWritingViewController.xib */; };
 		EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55935E4A02947EE81BFC401 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -374,6 +388,29 @@
 		E1278ACC18D0176E00177DFD /* BaseHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseHttpClient.h; path = iSCAU/Common/BaseHttpClient.h; sourceTree = SOURCE_ROOT; };
 		E1278ACD18D0176E00177DFD /* BaseHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseHttpClient.m; path = iSCAU/Common/BaseHttpClient.m; sourceTree = SOURCE_ROOT; };
 		E1278ADD18D1F66C00177DFD /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
+		E1278AE918D30A5A00177DFD /* CEHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEHttpClient.h; path = CourseEaluation/CEHttpClient.h; sourceTree = "<group>"; };
+		E1278AEA18D30A5A00177DFD /* CEHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEHttpClient.m; path = CourseEaluation/CEHttpClient.m; sourceTree = "<group>"; };
+		E1278AF218D30B7F00177DFD /* CourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseInfo.h; path = Model/CourseInfo.h; sourceTree = "<group>"; };
+		E1278AF318D30B7F00177DFD /* CourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseInfo.m; path = Model/CourseInfo.m; sourceTree = "<group>"; };
+		E1278AF518D317AF00177DFD /* CEBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEBaseViewController.h; path = CourseEaluation/CEBaseViewController.h; sourceTree = "<group>"; };
+		E1278AF618D317AF00177DFD /* CEBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CEBaseViewController.m; path = CourseEaluation/CEBaseViewController.m; sourceTree = "<group>"; };
+		E134BDD318D4974A00548307 /* CECourseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CECourseInfoCell.h; path = CourseEaluation/CECourseInfoCell.h; sourceTree = "<group>"; };
+		E134BDD418D4974A00548307 /* CECourseInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CECourseInfoCell.m; path = CourseEaluation/CECourseInfoCell.m; sourceTree = "<group>"; };
+		E134BDD518D4974A00548307 /* CECourseInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CECourseInfoCell.xib; path = CourseEaluation/CECourseInfoCell.xib; sourceTree = "<group>"; };
+		E134BDD618D4974A00548307 /* CESearchCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CESearchCourseViewController.h; path = CourseEaluation/CESearchCourseViewController.h; sourceTree = "<group>"; };
+		E134BDD718D4974A00548307 /* CESearchCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CESearchCourseViewController.m; path = CourseEaluation/CESearchCourseViewController.m; sourceTree = "<group>"; };
+		E134BDD818D4974A00548307 /* CESearchCourseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CESearchCourseViewController.xib; path = CourseEaluation/CESearchCourseViewController.xib; sourceTree = "<group>"; };
+		E134BDDD18D4977E00548307 /* CECourseCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CECourseCommentsViewController.h; path = CourseEaluation/CECourseCommentsViewController.h; sourceTree = "<group>"; };
+		E134BDDE18D4977E00548307 /* CECourseCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CECourseCommentsViewController.m; path = CourseEaluation/CECourseCommentsViewController.m; sourceTree = "<group>"; };
+		E134BDDF18D4977E00548307 /* CECourseCommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CECourseCommentsViewController.xib; path = CourseEaluation/CECourseCommentsViewController.xib; sourceTree = "<group>"; };
+		E134BDE218D4979900548307 /* CECourseCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CECourseCommentCell.h; path = CourseEaluation/CECourseCommentCell.h; sourceTree = "<group>"; };
+		E134BDE318D4979900548307 /* CECourseCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CECourseCommentCell.m; path = CourseEaluation/CECourseCommentCell.m; sourceTree = "<group>"; };
+		E134BDE518D497B600548307 /* CECourseCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CECourseCommentCell.xib; path = CourseEaluation/CECourseCommentCell.xib; sourceTree = "<group>"; };
+		E134BDE718D49BC800548307 /* CourseComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CourseComment.h; path = Model/CourseComment.h; sourceTree = "<group>"; };
+		E134BDE818D49BC800548307 /* CourseComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CourseComment.m; path = Model/CourseComment.m; sourceTree = "<group>"; };
+		E134BDEA18D594B700548307 /* CECommentWritingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CECommentWritingViewController.h; path = CourseEaluation/CECommentWritingViewController.h; sourceTree = "<group>"; };
+		E134BDEB18D594B700548307 /* CECommentWritingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CECommentWritingViewController.m; path = CourseEaluation/CECommentWritingViewController.m; sourceTree = "<group>"; };
+		E134BDEC18D594B700548307 /* CECommentWritingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CECommentWritingViewController.xib; path = CourseEaluation/CECommentWritingViewController.xib; sourceTree = "<group>"; };
 		F3C2D518F763477189F16CF2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -734,7 +771,9 @@
 				189EF6DB17C2898F001B3C20 /* AppDelegate.h */,
 				189EF6DC17C2898F001B3C20 /* AppDelegate.m */,
 				1806EAF117C366960039A6B9 /* Constant.h */,
+				E1278AF118D30B5100177DFD /* Model */,
 				E1278ACF18D0177D00177DFD /* Common */,
+				E1278AE218D2102800177DFD /* CourseEvaluation */,
 				186B299318BA4C4E000EC4A3 /* EduSys */,
 				186B29F518BA4CB2000EC4A3 /* Library */,
 				18B7A0C318B2140B009B1F7E /* News */,
@@ -888,6 +927,43 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		E1278AE218D2102800177DFD /* CourseEvaluation */ = {
+			isa = PBXGroup;
+			children = (
+				E1278AE918D30A5A00177DFD /* CEHttpClient.h */,
+				E1278AEA18D30A5A00177DFD /* CEHttpClient.m */,
+				E1278AF518D317AF00177DFD /* CEBaseViewController.h */,
+				E1278AF618D317AF00177DFD /* CEBaseViewController.m */,
+				E134BDD318D4974A00548307 /* CECourseInfoCell.h */,
+				E134BDD418D4974A00548307 /* CECourseInfoCell.m */,
+				E134BDD518D4974A00548307 /* CECourseInfoCell.xib */,
+				E134BDD618D4974A00548307 /* CESearchCourseViewController.h */,
+				E134BDD718D4974A00548307 /* CESearchCourseViewController.m */,
+				E134BDD818D4974A00548307 /* CESearchCourseViewController.xib */,
+				E134BDE218D4979900548307 /* CECourseCommentCell.h */,
+				E134BDE318D4979900548307 /* CECourseCommentCell.m */,
+				E134BDE518D497B600548307 /* CECourseCommentCell.xib */,
+				E134BDDD18D4977E00548307 /* CECourseCommentsViewController.h */,
+				E134BDDE18D4977E00548307 /* CECourseCommentsViewController.m */,
+				E134BDDF18D4977E00548307 /* CECourseCommentsViewController.xib */,
+				E134BDEA18D594B700548307 /* CECommentWritingViewController.h */,
+				E134BDEB18D594B700548307 /* CECommentWritingViewController.m */,
+				E134BDEC18D594B700548307 /* CECommentWritingViewController.xib */,
+			);
+			name = CourseEvaluation;
+			sourceTree = "<group>";
+		};
+		E1278AF118D30B5100177DFD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1278AF218D30B7F00177DFD /* CourseInfo.h */,
+				E1278AF318D30B7F00177DFD /* CourseInfo.m */,
+				E134BDE718D49BC800548307 /* CourseComment.h */,
+				E134BDE818D49BC800548307 /* CourseComment.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -971,11 +1047,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E134BDE118D4977E00548307 /* CECourseCommentsViewController.xib in Resources */,
 				18443C9618B64636006C4E6B /* Icon-Small-50.png in Resources */,
 				181BB52817E1E5A80055C8A5 /* Bus&Telphone.json in Resources */,
 				18ED807018BDB3B900B3BE0D /* BackButton.png in Resources */,
 				18ED807818BDB3B900B3BE0D /* nav_title@2x.png in Resources */,
 				186B2A1718BA4CB2000EC4A3 /* LibListHistoryCell.xib in Resources */,
+				E134BDDA18D4974A00548307 /* CECourseInfoCell.xib in Resources */,
 				189EF6D717C2898F001B3C20 /* InfoPlist.strings in Resources */,
 				186B2A2218BA4CB2000EC4A3 /* LibSearchBooksDetailCell.xib in Resources */,
 				186B2A2418BA4CB2000EC4A3 /* LibSearchBooksDetailViewController.xib in Resources */,
@@ -983,6 +1061,7 @@
 				18443C9118B64636006C4E6B /* Icon-72.png in Resources */,
 				186B29EA18BA4C4E000EC4A3 /* EduSysMarkCell.xib in Resources */,
 				186B29F018BA4C4E000EC4A3 /* EduSysMarksViewController.xib in Resources */,
+				E134BDEE18D594B700548307 /* CECommentWritingViewController.xib in Resources */,
 				186B29D518BA4C4E000EC4A3 /* EduSysClassTableViewController.xib in Resources */,
 				181BB52917E1E5A80055C8A5 /* CommunityInformation.json in Resources */,
 				18EC472A18B468A80015DFEE /* SelectionViewController.xib in Resources */,
@@ -999,6 +1078,7 @@
 				18ED807918BDB3B900B3BE0D /* news_list_header@2x.png in Resources */,
 				186B29F418BA4C4E000EC4A3 /* EduSysPickClassInfoViewController.xib in Resources */,
 				18443C9318B64636006C4E6B /* Icon-76.png in Resources */,
+				E134BDE618D497B600548307 /* CECourseCommentCell.xib in Resources */,
 				189EF6E317C2898F001B3C20 /* Default-568h@2x.png in Resources */,
 				186B29E118BA4C4E000EC4A3 /* EduSysEmptyClassroomSelectionViewController.xib in Resources */,
 				18443C9518B64636006C4E6B /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
@@ -1032,6 +1112,7 @@
 				186B2A1918BA4CB2000EC4A3 /* LibListHistoryViewController.xib in Resources */,
 				18ED807418BDB3B900B3BE0D /* clock@2x.png in Resources */,
 				186B29E318BA4C4E000EC4A3 /* EduSysEmptyClassroomViewController.xib in Resources */,
+				E134BDDC18D4974A00548307 /* CESearchCourseViewController.xib in Resources */,
 				18443C9418B64636006C4E6B /* Icon-76@2x.png in Resources */,
 				18B7A0C218B21403009B1F7E /* AZNewsListViewController.xib in Resources */,
 				18443CA818B6FA33006C4E6B /* AboutViewController.xib in Resources */,
@@ -1107,6 +1188,7 @@
 			files = (
 				18D90F5918B8B78C00E0ADDB /* BaseViewController.m in Sources */,
 				18EDE80E188A964400F31288 /* AZViewController.m in Sources */,
+				E1278AEB18D30A5A00177DFD /* CEHttpClient.m in Sources */,
 				189EF6D917C2898F001B3C20 /* main.m in Sources */,
 				186B29DE18BA4C4E000EC4A3 /* EduSysEmptyClassroomDetailViewController.m in Sources */,
 				186B29E918BA4C4E000EC4A3 /* EduSysMarkCell.m in Sources */,
@@ -1119,6 +1201,7 @@
 				18B7A0B818B2111D009B1F7E /* UIButton+Bootstrap.m in Sources */,
 				186B29D118BA4C4E000EC4A3 /* EduBaseViewController.m in Sources */,
 				18A3FBC517C35010007E60BD /* LoginViewController.m in Sources */,
+				E134BDE418D4979900548307 /* CECourseCommentCell.m in Sources */,
 				186B2A1B18BA4CB2000EC4A3 /* LibListNowCell.m in Sources */,
 				186B2A2118BA4CB2000EC4A3 /* LibSearchBooksDetailCell.m in Sources */,
 				186B29EF18BA4C4E000EC4A3 /* EduSysMarksViewController.m in Sources */,
@@ -1127,17 +1210,22 @@
 				18EDE81B188AC3E900F31288 /* UIImage+ImageWithColor.m in Sources */,
 				186B29D418BA4C4E000EC4A3 /* EduSysClassTableViewController.m in Sources */,
 				186B2A1618BA4CB2000EC4A3 /* LibListHistoryCell.m in Sources */,
+				E1278AF418D30B7F00177DFD /* CourseInfo.m in Sources */,
 				186B2A1F18BA4CB2000EC4A3 /* LibSearchBooksCell.m in Sources */,
 				18B7A0C118B21403009B1F7E /* AZNewsListViewController.m in Sources */,
 				186B2A2318BA4CB2000EC4A3 /* LibSearchBooksDetailViewController.m in Sources */,
 				186B2A2A18BA4E3C000EC4A3 /* CardStyleView.m in Sources */,
 				1861668B17DBA59300ECFA5C /* UIImage+Tint.m in Sources */,
+				E134BDE918D49BC800548307 /* CourseComment.m in Sources */,
 				18C0B3C618B26148000B67EB /* AZNewsDetailViewController.m in Sources */,
 				18EDE81E188AC62900F31288 /* UIImage+ScreenShot.m in Sources */,
 				18B7A0C618B21545009B1F7E /* AZNewsHttpClient.m in Sources */,
+				E134BDE018D4977E00548307 /* CECourseCommentsViewController.m in Sources */,
 				186B29F118BA4C4E000EC4A3 /* EduSysPickClassInfoCell.m in Sources */,
+				E134BDED18D594B700548307 /* CECommentWritingViewController.m in Sources */,
 				1861668A17DBA59300ECFA5C /* UIColor+Addition.m in Sources */,
 				186B2A1A18BA4CB2000EC4A3 /* LibHttpClient.m in Sources */,
+				E134BDDB18D4974A00548307 /* CESearchCourseViewController.m in Sources */,
 				18B7A0B518B21106009B1F7E /* UIWebView+Addition.m in Sources */,
 				18EC472918B468A80015DFEE /* SelectionViewController.m in Sources */,
 				186B29EB18BA4C4E000EC4A3 /* EduSysMarksDetailCell.m in Sources */,
@@ -1153,7 +1241,9 @@
 				186B29DC18BA4C4E000EC4A3 /* EduSysEmptyClassroomDetailCell.m in Sources */,
 				186B2A1D18BA4CB2000EC4A3 /* LibListNowViewController.m in Sources */,
 				18954FB018B7574B009F28AF /* ImageCropper.m in Sources */,
+				E134BDD918D4974A00548307 /* CECourseInfoCell.m in Sources */,
 				18EDE7F6188A52BF00F31288 /* AZSideMenuViewController.m in Sources */,
+				E1278AF718D317AF00177DFD /* CEBaseViewController.m in Sources */,
 				182EEB551802A33D007E8946 /* PopoverView.m in Sources */,
 				186B29E618BA4C4E000EC4A3 /* EduSysExamViewController.m in Sources */,
 				18EDE811188A970700F31288 /* AZSideMenuItem.m in Sources */,
