@@ -102,7 +102,7 @@ NSString * const CourseInfoStatusInvalid = @"invalid request";
     
     __weak ASIFormDataRequest *weekFormDataRequest = self.formDataRequest;
     
-    [self.request setCompletionBlock:^{
+    [self.formDataRequest setCompletionBlock:^{
         NSInteger httpCode = [weekFormDataRequest responseStatusCode];
         
         if (httpCode == EduUsernameError || httpCode == EduPasswordError) {
@@ -120,10 +120,10 @@ NSString * const CourseInfoStatusInvalid = @"invalid request";
             POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
         }
         if (success != nil) {
-            success([weekFormDataRequest responseData], [weekFormDataRequest responseStatusCode]);
+            success([weekFormDataRequest responseData], httpCode);
         }
     }];
-    [self.request setFailedBlock:^{        
+    [self.formDataRequest setFailedBlock:^{        
         NSDictionary *dict = @{ kNotice : kDefaultErrorNotice, kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
         POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
         
@@ -131,7 +131,7 @@ NSString * const CourseInfoStatusInvalid = @"invalid request";
             failure([weekFormDataRequest responseData], [weekFormDataRequest responseStatusCode]);
         }
     }];
-    [self.request startAsynchronous];
+    [self.formDataRequest startAsynchronous];
 }
 
 - (void)searchCoursesWithKeyword:(NSString *)keyword 
@@ -182,9 +182,9 @@ NSString * const CourseInfoStatusInvalid = @"invalid request";
                            failure:(ErrorBlock)failure
 {
     NSDictionary *params = @{ @"courseId" : courseId,
-                              @"username" : username };
+                              @"userName" : username };
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@/likedCounrse", COURSE_EVALUATION];
+    NSString *urlString =  [NSString stringWithFormat:@"%@/likedCourse", COURSE_EVALUATION];
     [self postRequestWithUrl:urlString 
                       params:params 
                      success:success
@@ -197,9 +197,9 @@ NSString * const CourseInfoStatusInvalid = @"invalid request";
                               failure:(ErrorBlock)failure
 {
     NSDictionary *params = @{ @"courseId" : courseId,
-                              @"username" : username };
+                              @"userName" : username };
     
-    NSString *urlString =  [NSString stringWithFormat:@"%@/dislikedCounrse", COURSE_EVALUATION];
+    NSString *urlString =  [NSString stringWithFormat:@"%@/dislikedCourse", COURSE_EVALUATION];
     [self postRequestWithUrl:urlString 
                       params:params 
                      success:success

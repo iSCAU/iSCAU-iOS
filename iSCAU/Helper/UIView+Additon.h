@@ -69,6 +69,8 @@
 
 - (UIViewController*)viewController;
 
+- (void)defaultRoundRectBorder;
+
 + (void)animateWithDuration:(NSTimeInterval)duration options:(UIViewAnimationOptions)options animations:(void (^)(void))animations;
 
 @end

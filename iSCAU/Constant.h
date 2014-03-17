@@ -15,6 +15,7 @@ typedef void(^ErrorBlock)(NSData *responseData, int httpCode);
 #define HOST_NAME @"http://115.28.144.49"
 #define LIB_DETAIL_HOST @"http://202.116.174.108:8080/opac/"
 #define COURSE_EVALUATION @"http://api.huanongbao.com/course_comments/index.php?s=/Api"
+//#define COURSE_EVALUATION @"http://127.0.0.1:8890/index.php?s=/Api"
 
 #define SET_DEFAULT_BACKGROUND_COLOR(table) [(table) setBackgroundColor:[UIColor colorFromHexRGB:@"f2f0ed" alpha:1.0f]];
 #define RESOURCE_PATH(resourceName, type)   [[NSBundle mainBundle] pathForResource:(resourceName) ofType:(type)]
@@ -22,6 +23,8 @@ typedef void(^ErrorBlock)(NSData *responseData, int httpCode);
 #define IS_FLAT_UI                          (([[[UIDevice currentDevice] systemVersion] floatValue]) >= 7.0)
 #define APP_DELEGATE                        ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define IS_IPHONE4                          (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double)480) < DBL_EPSILON)
+
+#define IPHONE_DEVICE_LENGTH_DIFFERENCE 88.0f
 
 // Notification
 #define kDefaultHideNoticeIntervel 1.5

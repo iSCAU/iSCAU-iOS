@@ -156,7 +156,8 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (UIView*)descendantOrSelfWithClass:(Class)cls {
+- (UIView*)descendantOrSelfWithClass:(Class)cls 
+{
     if ([self isKindOfClass:cls])
         return self;
     
@@ -169,7 +170,9 @@
     return nil;
 }
 
-- (id)subviewWithTag:(NSInteger)tag{
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (id)subviewWithTag:(NSInteger)tag
+{
     for(UIView *view in [self subviews]){
         if(view.tag == tag){
             return view;
@@ -179,7 +182,9 @@
     return nil;
 }
 
-- (UIViewController*)viewController {
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (UIViewController*)viewController
+{
     for (UIView* next = [self superview]; next; next = next.superview) {
         UIResponder* nextResponder = [next nextResponder];
         if ([nextResponder isKindOfClass:[UIViewController class]]) {
@@ -189,9 +194,20 @@
     return nil;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)defaultRoundRectBorder
+{
+    self.layer.borderWidth = 1.f;
+    self.layer.borderColor = [UIColor colorWithWhite:0 alpha:0.2].CGColor;
+    self.layer.cornerRadius = 2.f;
+    self.clipsToBounds = YES;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 + (void)animateWithDuration:(NSTimeInterval)duration
                     options:(UIViewAnimationOptions)options
-                 animations:(void (^)(void))animations {
+                 animations:(void (^)(void))animations
+{
     [self animateWithDuration:duration
                         delay:0
                       options:options

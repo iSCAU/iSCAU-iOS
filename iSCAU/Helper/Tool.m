@@ -52,7 +52,6 @@
     if (string == nil) return nil;
     
     NSString *unsafeStr = [[string dataUsingEncoding:NSUTF8StringEncoding] base64EncodedString];
-//    return unsafeStr;
     unsafeStr = [unsafeStr stringByReplacingOccurrencesOfString:@"+" withString:@"-"];
     unsafeStr = [unsafeStr stringByReplacingOccurrencesOfString:@"/" withString:@"_"];
     return unsafeStr;
@@ -164,7 +163,7 @@
 
 + (NSString *)stuNum {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    return [def objectForKey:EDU_SYS_stuNum];
+    return ([def objectForKey:EDU_SYS_stuNum] != nil) ? [def objectForKey:EDU_SYS_stuNum] : @"";
 }
 
 + (NSString *)stuPwd {

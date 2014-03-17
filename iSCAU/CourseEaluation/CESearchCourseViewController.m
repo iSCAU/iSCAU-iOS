@@ -13,6 +13,8 @@
 #import "CECourseInfoCell.h"
 #import "CECourseCommentsViewController.h"
 
+CGFloat const SearchBarHeight = 44.f;
+
 @interface CESearchCourseViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, assign) BOOL isLoading;
@@ -38,11 +40,19 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    SET_DEFAULT_BACKGROUND_COLOR(self.tableSearch);
+    
+    self.courses = [NSMutableArray array];
     self.currentPage = 0;
     self.totalPage = 0;
     
@@ -55,9 +65,10 @@
         };
     }
     
-    self.courses = [NSMutableArray array];
-    
-    SET_DEFAULT_BACKGROUND_COLOR(self.tableSearch);
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(resignResponder) 
+                                                 name:AZSideMenuStartPanningNotification 
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,33 +77,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self 
-                                             selector:@selector(resignResponder) 
-                                                 name:AZSideMenuStartPanningNotification 
-                                               object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:AZSideMenuStartPanningNotification object:nil];
-}
-
 #pragma mark - table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 44.;
+        return SearchBarHeight;
     } else if (indexPath.row - 1 == self.courses.count) {
         return 50;
     } else {
-        return 126;
+        return CECourseInfoCellHeight;
     }
 }
 
@@ -109,7 +103,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchBarIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SearchBarIdentifier];
-            self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 44)];
+            self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, self.view.width, SearchBarHeight)];
             self.searchBar.placeholder = @"请输入老师名或课程名";
             self.searchBar.delegate = self;
             [cell.contentView addSubview:self.searchBar];
@@ -145,7 +139,8 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     int row = indexPath.row;
     if (row == self.totalCount || row == 0) {
         return;
@@ -164,7 +159,8 @@
 
 #pragma mark - searchbar
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
     [searchBar resignFirstResponder];
     self.currentPage = 1;
     
@@ -173,7 +169,8 @@
     [self searchCourse];
 }
 
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
     searchBar.showsCancelButton = YES;
     // 改变searchbar取消按钮的文字
     for (UIView *subview in searchBar.subviews) {
@@ -184,7 +181,8 @@
     }
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
     searchBar.showsCancelButton = NO;
     [searchBar resignFirstResponder];
 }
@@ -206,9 +204,7 @@
                      [self.courses removeAllObjects];
                      self.isSearching = NO;
                  }
-                 
-                  NSLog(@"course %@", dict);
-                 
+                                  
                  for (NSDictionary *d in tmpCourses) {
                      CourseInfo *course = [MTLJSONAdapter modelOfClass:CourseInfo.class fromJSONDictionary:d error:&error];
                      [self.courses addObject:course];
@@ -218,10 +214,10 @@
                  SHOW_NOTICE_HUD(@"没找到相应课程");
              }
          } else {
-             SHOW_NOTICE_HUD(@"报错..");
+             SHOW_NOTICE_HUD(kDefaultErrorNotice);
          }
      } failure:^(NSData *responseData, int httpCode) {
-         NSLog(@"error");
+         SHOW_NOTICE_HUD(kDefaultErrorNotice);
      }];
 }
 

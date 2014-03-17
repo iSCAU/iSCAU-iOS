@@ -33,9 +33,9 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
     NSDate *date = [formatter dateFromString:self.timeString];
-    
+    NSLog(@"%@ %@", date, self.timeString);
     double distance = - [date timeIntervalSinceNow];
-    
+     
     if (distance < 60) {
         _timestamp = [NSString stringWithFormat:@"%.0f%@", distance, (distance == 1) ? @"秒前" : @"秒前"];
     }

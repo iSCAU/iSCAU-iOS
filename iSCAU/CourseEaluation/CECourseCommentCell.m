@@ -7,6 +7,10 @@
 //
 
 #import "CECourseCommentCell.h"
+#import "CardStyleView.h"
+
+CGFloat const CECourseCommentCellHeight = 136.f;
+CGFloat const CommentLabelFontSize = 15.f;
 
 @interface CECourseCommentCell ()
 
@@ -18,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *labIsCheck;
 @property (weak, nonatomic) IBOutlet UILabel *labExamType;
 @property (weak, nonatomic) IBOutlet UILabel *labComment;
+@property (weak, nonatomic) IBOutlet CardStyleView *cardStyleView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgHasHomework;
+@property (weak, nonatomic) IBOutlet UIImageView *imgIsCheck;
 
 @end
 
@@ -45,43 +52,48 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)setupWithCourseComment:(CourseComment *)comment
+- (CECourseCommentCell *)setupWithCourseComment:(CourseComment *)comment
 {
     self.comment = comment;
     
     if (comment && [comment isKindOfClass:[CourseComment class]]) {
-        
-        NSLog(@"comment %@", comment);
-        
+                
         self.labUsername.text = comment.userName;
         self.labTimestamp.text = [comment timeStamp];
         self.labExamType.text = [NSString stringWithFormat:@"考试类型: %@", comment.examType];
         self.labComment.text = comment.comment;
         
-//        CGSize maxSize = CGSizeMake(280, MAXFLOAT);
-//        CGFloat commentLabelHeight = [comment.comment sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:maxSize lineBreakMode:NSLineBreakByCharWrapping].height;
-        CGFloat commentLabelHeight = 27.f;
+        CGSize maxSize = CGSizeMake(280, MAXFLOAT);
+        CGFloat commentLabelHeight = [comment.comment sizeWithFont:[UIFont systemFontOfSize:CommentLabelFontSize] constrainedToSize:maxSize lineBreakMode:NSLineBreakByWordWrapping].height;
         
         CGRect frame = self.labComment.frame;
         CGFloat heightDifference = commentLabelHeight - frame.size.height;
-        frame.size.height = commentLabelHeight;
+        frame.size.height = frame.size.height + heightDifference;
         self.labComment.frame = frame;
+        
+        frame = self.cardStyleView.frame;
+        frame.size.height += heightDifference;
+        self.cardStyleView.frame = frame;
         
         frame = self.frame;
         frame.size.height += heightDifference;
         self.frame = frame;
+        
+        NSString *checkImageName = @"check.png";
+        NSString *x_markImageName = @"x-mark.png";
+        self.imgHasHomework.image = [UIImage imageNamed:(self.comment.hasHomework ? checkImageName : x_markImageName)];
+        self.imgIsCheck.image = [UIImage imageNamed:(self.comment.isCheck ? checkImageName : x_markImageName)];
     }
+    return self;
 }
 
 + (CGFloat)heightWithComment:(CourseComment *)comment
 {
-//    CGSize maxSize = CGSizeMake(280, MAXFLOAT);
-//    CGFloat commentLabelHeight = [comment.comment sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:maxSize lineBreakMode:NSLineBreakByCharWrapping].height;
-//    
-//    CGFloat heightDifference = commentLabelHeight - 27.0;
-
-//    return 150 + heightDifference;
-    return 150;
+    CGSize maxSize = CGSizeMake(280, MAXFLOAT);
+    CGFloat commentLabelHeight = [comment.comment sizeWithFont:[UIFont systemFontOfSize:CommentLabelFontSize] constrainedToSize:maxSize lineBreakMode:NSLineBreakByWordWrapping].height;
+    CGFloat heightDifference = commentLabelHeight - 27.0;
+    
+    return CECourseCommentCellHeight + heightDifference;
 }
 
 @end

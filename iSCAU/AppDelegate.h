@@ -33,5 +33,7 @@ extern NSString *YEAR_TITLE;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *rootViewController;
 @property (strong, nonatomic) UIColor *tintColor;
+@property (strong, nonatomic) NSMutableArray *likedCourses;
+@property (strong, nonatomic) NSMutableArray *dislikedCourses;
 
 @end

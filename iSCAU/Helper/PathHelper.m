@@ -39,4 +39,14 @@
     return [[PathHelper userDocumentPath] stringByAppendingPathComponent:@"emptyClassroomParams"];
 }
 
++ (NSString *)likedCoursesFileName
+{
+    return [[PathHelper userDocumentPath] stringByAppendingPathComponent:@"likedCourses"];
+}
+
++ (NSString *)dislikedCoursesFileName
+{
+    return [[PathHelper userDocumentPath] stringByAppendingPathComponent:@"dislikedCourses"];
+}
+
 @end

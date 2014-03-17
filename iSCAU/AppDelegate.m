@@ -34,6 +34,23 @@ NSString * const UM_CODE = @"50b853b85270156c2b000007";
 
 @implementation AppDelegate
 
+- (NSMutableArray *)likedCourses
+{
+    if (_likedCourses == nil) {
+         _likedCourses = [[NSMutableArray alloc] initWithContentsOfFile:[PathHelper likedCoursesFileName]];
+    }
+    return _likedCourses;
+}
+
+- (NSMutableArray *)dislikedCourses
+{
+    if (_dislikedCourses == nil) {
+        _dislikedCourses = [[NSMutableArray alloc] initWithContentsOfFile:[PathHelper dislikedCoursesFileName]];
+    }
+    return _dislikedCourses;
+
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

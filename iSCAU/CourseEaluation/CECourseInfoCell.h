@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CourseInfo.h"
 
+extern CGFloat const CECourseInfoCellHeight;
+
 @interface CECourseInfoCell : UITableViewCell
 
 - (void)setupWithCourseInfo:(CourseInfo *)courseInfo;

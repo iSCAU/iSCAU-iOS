@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 Alvin. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CEBaseViewController.h"
+#import "CourseInfo.h"
 
-@interface CECommentWritingViewController : UIViewController
+@interface CECommentWritingViewController : CEBaseViewController <UITextFieldDelegate, UITextViewDelegate>
+
+@property (nonatomic, strong) CourseInfo *course;
 
 @end

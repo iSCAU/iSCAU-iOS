@@ -17,4 +17,6 @@
 + (NSString *)borrowingBooksFileName;
 + (NSString *)pickClassFileName;
 + (NSString *)emptyClassroomParamsFileName;
++ (NSString *)likedCoursesFileName;
++ (NSString *)dislikedCoursesFileName;
 @end

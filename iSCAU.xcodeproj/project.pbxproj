@@ -164,6 +164,14 @@
 		E134BDE918D49BC800548307 /* CourseComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDE818D49BC800548307 /* CourseComment.m */; };
 		E134BDED18D594B700548307 /* CECommentWritingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDEB18D594B700548307 /* CECommentWritingViewController.m */; };
 		E134BDEE18D594B700548307 /* CECommentWritingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E134BDEC18D594B700548307 /* CECommentWritingViewController.xib */; };
+		E134BDF118D5DBAA00548307 /* CAKeyframeAnimation+Parametric.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDF018D5DBAA00548307 /* CAKeyframeAnimation+Parametric.m */; };
+		E134BDF618D60CE800548307 /* dislike@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDF218D60CE800548307 /* dislike@2x.png */; };
+		E134BDF718D60CE800548307 /* disliked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDF318D60CE800548307 /* disliked@2x.png */; };
+		E134BDF818D60CE800548307 /* like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDF418D60CE800548307 /* like@2x.png */; };
+		E134BDF918D60CE800548307 /* liked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDF518D60CE800548307 /* liked@2x.png */; };
+		E134BDFB18D6D78200548307 /* write_comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDFA18D6D78200548307 /* write_comment@2x.png */; };
+		E134BDFE18D721B100548307 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDFC18D721B100548307 /* check@2x.png */; };
+		E134BDFF18D721B100548307 /* x-mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDFD18D721B100548307 /* x-mark@2x.png */; };
 		EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55935E4A02947EE81BFC401 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -411,6 +419,15 @@
 		E134BDEA18D594B700548307 /* CECommentWritingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CECommentWritingViewController.h; path = CourseEaluation/CECommentWritingViewController.h; sourceTree = "<group>"; };
 		E134BDEB18D594B700548307 /* CECommentWritingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CECommentWritingViewController.m; path = CourseEaluation/CECommentWritingViewController.m; sourceTree = "<group>"; };
 		E134BDEC18D594B700548307 /* CECommentWritingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CECommentWritingViewController.xib; path = CourseEaluation/CECommentWritingViewController.xib; sourceTree = "<group>"; };
+		E134BDEF18D5DBAA00548307 /* CAKeyframeAnimation+Parametric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+Parametric.h"; sourceTree = "<group>"; };
+		E134BDF018D5DBAA00548307 /* CAKeyframeAnimation+Parametric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+Parametric.m"; sourceTree = "<group>"; };
+		E134BDF218D60CE800548307 /* dislike@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dislike@2x.png"; sourceTree = "<group>"; };
+		E134BDF318D60CE800548307 /* disliked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disliked@2x.png"; sourceTree = "<group>"; };
+		E134BDF418D60CE800548307 /* like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "like@2x.png"; sourceTree = "<group>"; };
+		E134BDF518D60CE800548307 /* liked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "liked@2x.png"; sourceTree = "<group>"; };
+		E134BDFA18D6D78200548307 /* write_comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "write_comment@2x.png"; sourceTree = "<group>"; };
+		E134BDFC18D721B100548307 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
+		E134BDFD18D721B100548307 /* x-mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark@2x.png"; sourceTree = "<group>"; };
 		F3C2D518F763477189F16CF2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -536,6 +553,8 @@
 		1861668317DBA59300ECFA5C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E134BDEF18D5DBAA00548307 /* CAKeyframeAnimation+Parametric.h */,
+				E134BDF018D5DBAA00548307 /* CAKeyframeAnimation+Parametric.m */,
 				18B7A0B618B2111D009B1F7E /* UIButton+Bootstrap.h */,
 				18B7A0B718B2111D009B1F7E /* UIButton+Bootstrap.m */,
 				18B7A0B318B21106009B1F7E /* UIWebView+Addition.h */,
@@ -873,6 +892,13 @@
 		18ED806118BDB3B900B3BE0D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E134BDFC18D721B100548307 /* check@2x.png */,
+				E134BDFD18D721B100548307 /* x-mark@2x.png */,
+				E134BDFA18D6D78200548307 /* write_comment@2x.png */,
+				E134BDF218D60CE800548307 /* dislike@2x.png */,
+				E134BDF318D60CE800548307 /* disliked@2x.png */,
+				E134BDF418D60CE800548307 /* like@2x.png */,
+				E134BDF518D60CE800548307 /* liked@2x.png */,
 				18ED806218BDB3B900B3BE0D /* BackButton.png */,
 				18ED806318BDB3B900B3BE0D /* BackButton@2x.png */,
 				18ED806418BDB3B900B3BE0D /* background@2x.png */,
@@ -1050,6 +1076,7 @@
 				E134BDE118D4977E00548307 /* CECourseCommentsViewController.xib in Resources */,
 				18443C9618B64636006C4E6B /* Icon-Small-50.png in Resources */,
 				181BB52817E1E5A80055C8A5 /* Bus&Telphone.json in Resources */,
+				E134BDF818D60CE800548307 /* like@2x.png in Resources */,
 				18ED807018BDB3B900B3BE0D /* BackButton.png in Resources */,
 				18ED807818BDB3B900B3BE0D /* nav_title@2x.png in Resources */,
 				186B2A1718BA4CB2000EC4A3 /* LibListHistoryCell.xib in Resources */,
@@ -1063,17 +1090,20 @@
 				186B29F018BA4C4E000EC4A3 /* EduSysMarksViewController.xib in Resources */,
 				E134BDEE18D594B700548307 /* CECommentWritingViewController.xib in Resources */,
 				186B29D518BA4C4E000EC4A3 /* EduSysClassTableViewController.xib in Resources */,
+				E134BDF618D60CE800548307 /* dislike@2x.png in Resources */,
 				181BB52917E1E5A80055C8A5 /* CommunityInformation.json in Resources */,
 				18EC472A18B468A80015DFEE /* SelectionViewController.xib in Resources */,
 				18ED807618BDB3B900B3BE0D /* nav_title.png in Resources */,
 				186B2A2018BA4CB2000EC4A3 /* LibSearchBooksCell.xib in Resources */,
 				186B29DF18BA4C4E000EC4A3 /* EduSysEmptyClassroomDetailViewController.xib in Resources */,
 				189EF6E117C2898F001B3C20 /* Default@2x.png in Resources */,
+				E134BDFF18D721B100548307 /* x-mark@2x.png in Resources */,
 				181BB52B17E1E5A80055C8A5 /* LifeInformation.json in Resources */,
 				18443C9C18B64636006C4E6B /* Icon@2x.png in Resources */,
 				18ED807518BDB3B900B3BE0D /* menu_background@2x.png in Resources */,
 				18ED807118BDB3B900B3BE0D /* BackButton@2x.png in Resources */,
 				18ED807B18BDB3B900B3BE0D /* semester.jpg in Resources */,
+				E134BDFE18D721B100548307 /* check@2x.png in Resources */,
 				18D90F5A18B8B78C00E0ADDB /* BaseViewController.xib in Resources */,
 				18ED807918BDB3B900B3BE0D /* news_list_header@2x.png in Resources */,
 				186B29F418BA4C4E000EC4A3 /* EduSysPickClassInfoViewController.xib in Resources */,
@@ -1083,6 +1113,7 @@
 				186B29E118BA4C4E000EC4A3 /* EduSysEmptyClassroomSelectionViewController.xib in Resources */,
 				18443C9518B64636006C4E6B /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				18B7A0D018B2259A009B1F7E /* AZNewsCell.xib in Resources */,
+				E134BDF718D60CE800548307 /* disliked@2x.png in Resources */,
 				18443C9A18B64636006C4E6B /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				18ED807D18BDB3B900B3BE0D /* shadow-down.png in Resources */,
 				186B2A2618BA4CB2000EC4A3 /* LibSearchBooksViewController.xib in Resources */,
@@ -1096,6 +1127,7 @@
 				18443C9B18B64636006C4E6B /* Icon.png in Resources */,
 				186B2A1C18BA4CB2000EC4A3 /* LibListNowCell.xib in Resources */,
 				18443CB118B6FCA8006C4E6B /* umFeedback.bundle in Resources */,
+				E134BDF918D60CE800548307 /* liked@2x.png in Resources */,
 				18A3FBC617C35010007E60BD /* LoginViewController.xib in Resources */,
 				18443C9218B64636006C4E6B /* Icon-72@2x.png in Resources */,
 				18ED807218BDB3B900B3BE0D /* background@2x.png in Resources */,
@@ -1121,6 +1153,7 @@
 				186B29E518BA4C4E000EC4A3 /* EduSysExamInfoCell.xib in Resources */,
 				18ED807318BDB3B900B3BE0D /* btn_cancle.png in Resources */,
 				186B2A1E18BA4CB2000EC4A3 /* LibListNowViewController.xib in Resources */,
+				E134BDFB18D6D78200548307 /* write_comment@2x.png in Resources */,
 				18ED806018BDB0F200B3BE0D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1250,6 +1283,7 @@
 				186B29E018BA4C4E000EC4A3 /* EduSysEmptyClassroomSelectionViewController.m in Sources */,
 				E1278ACE18D0176E00177DFD /* BaseHttpClient.m in Sources */,
 				182EEB581802B093007E8946 /* PathHelper.m in Sources */,
+				E134BDF118D5DBAA00548307 /* CAKeyframeAnimation+Parametric.m in Sources */,
 				18EDE814188AA3F900F31288 /* AZSideMenuCell.m in Sources */,
 				186B299118BA4487000EC4A3 /* RootViewController.m in Sources */,
 				186B29F318BA4C4E000EC4A3 /* EduSysPickClassInfoViewController.m in Sources */,

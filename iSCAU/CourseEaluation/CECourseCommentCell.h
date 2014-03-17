@@ -11,7 +11,7 @@
 
 @interface CECourseCommentCell : UITableViewCell
 
-- (void)setupWithCourseComment:(CourseComment *)comment;
+- (CECourseCommentCell *)setupWithCourseComment:(CourseComment *)comment;
 
 + (CGFloat)heightWithComment:(CourseComment *)comment;
 

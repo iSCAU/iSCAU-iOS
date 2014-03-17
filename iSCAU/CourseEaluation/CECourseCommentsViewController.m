@@ -10,8 +10,12 @@
 #import "CECourseInfoCell.h"
 #import "CECourseCommentCell.h"
 #import "CEHttpClient.h"
+#import "CECommentWritingViewController.h"
+#import "CAKeyframeAnimation+Parametric.h"
+#import "UIImage+Tint.h"
 
-#define HEIGHt_4_SECTION 30
+CGFloat const height4Section = 25.f;
+CGFloat const writeCommentButtonHeight = 44.0;
 
 @interface CECourseCommentsViewController ()
 
@@ -40,20 +44,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.navigationController.navigationBar.translucent = NO;
-
     SET_DEFAULT_BACKGROUND_COLOR(self.tableView);
     
-    // Pull to refresh
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];  
-    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];  
-    [refresh addTarget:self action:@selector(reloadComments) forControlEvents:UIControlEventValueChanged];
-    self.refreshControl = refresh;
-    
-    CGFloat controlViewHeight = 44.0;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, controlViewHeight, 0);
-    
+
     CGRect frame = CGRectZero;
     if (SystemVersion_floatValue >= 7.0) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -61,7 +56,7 @@
     }
     if (IS_IPHONE4) {
         frame = self.view.frame;
-        frame.size.height -= (88.0 + 44.0f);
+        frame.size.height -= (IPHONE_DEVICE_LENGTH_DIFFERENCE + 44.0f);
         self.view.frame = frame;
     } else {
         frame = self.view.frame;
@@ -69,22 +64,33 @@
         self.view.frame = frame;
     }
     
-    // ControlView
+    self.comments = [NSMutableArray array];
+    self.page = 1;
+    self.totalCount = 0;
+    self.totalPage = 1;
+    
+    // Pull to refresh
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];  
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"下拉刷新"];  
+    [refresh addTarget:self action:@selector(reloadComments) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+        
+    // writeCommentButton
     self.btnWriteComment = [UIButton buttonWithType:UIButtonTypeCustom];
     self.btnWriteComment.frame = (CGRect) {
         0,
-        self.view.height - controlViewHeight,
+        self.view.height - writeCommentButtonHeight,
         self.view.width,
-        controlViewHeight
+        writeCommentButtonHeight
     };
     [self.btnWriteComment setTitle:@"写评论" forState:UIControlStateNormal];
-    self.btnWriteComment.backgroundColor = [UIColor whiteColor];
+    [self.btnWriteComment setImage:[[UIImage imageNamed:@"write_comment.png"] imageWithTintColor:APP_DELEGATE.tintColor] forState:UIControlStateNormal];
     [self.btnWriteComment setTitleColor:APP_DELEGATE.tintColor forState:UIControlStateNormal];
-    self.btnWriteComment.layer.zPosition = 1000;        // Used to cover tableview's section
+    [self.btnWriteComment addTarget:self action:@selector(showCommentWritingViewController) forControlEvents:UIControlEventTouchUpInside];
+    self.btnWriteComment.layer.zPosition = 1000;
+    self.btnWriteComment.backgroundColor = [UIColor whiteColor];
     [self.view insertSubview:self.btnWriteComment aboveSubview:self.tableView];
     
-    self.comments = [NSMutableArray array];
-    self.page = 1;
     
     [self reloadComments];
 }
@@ -93,6 +99,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // edge inset
+    UIEdgeInsets tableEdgeInset = UIEdgeInsetsMake(0, 0, writeCommentButtonHeight, 0);
+    self.tableView.contentInset = tableEdgeInset;
+    self.tableView.scrollIndicatorInsets = tableEdgeInset;
 }
 
 #pragma mark - Table view data source
@@ -119,6 +135,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+        // course info cell
         static NSString *CECourseInfoCellIdentifier = @"CECourseInfoCellIdentifier";
         CECourseInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:CECourseInfoCellIdentifier];
         
@@ -131,16 +148,18 @@
     } else {
         NSUInteger row = indexPath.row;
         if (row < self.comments.count) {
+            // course comment cell
             static NSString *CECourseCommentCellIdentifier = @"CECourseCommentCellIdentifier";
             CECourseCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CECourseCommentCellIdentifier];
             if (cell == nil) {
                 NSArray *cellArray = [[NSBundle mainBundle] loadNibNamed:@"CECourseCommentCell" owner:self options:nil];
                 cell = [cellArray objectAtIndex:0];
             }
-            [cell setupWithCourseComment:self.comments[row]];
+            cell = [cell setupWithCourseComment:self.comments[row]];
             
             return cell;
         } else {
+            // load more cell
             static NSString *LoadMoreIdentifier = @"LoadMoreIdentifier";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LoadMoreIdentifier];
             if (cell == nil) {
@@ -154,11 +173,40 @@
     }
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        NSInteger headerLabelTag = 1000;
+        UIView *headerView = [tableView headerViewForSection:section];
+        if (headerView == nil) {
+            headerView = [[UIView alloc] initWithFrame:(CGRect){
+                CGPointZero,
+                self.view.width,
+                height4Section
+            }];
+            headerView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.9];
+            
+            UILabel *headerLabel = [[UILabel alloc] initWithFrame:headerView.frame];
+            headerLabel.backgroundColor = [UIColor clearColor];
+            headerLabel.textColor = [UIColor darkGrayColor];
+            headerLabel.font = [UIFont systemFontOfSize:14];
+            headerLabel.tag =  headerLabelTag;
+            [headerView addSubview:headerLabel];
+        }
+        
+        UILabel *headerLabel = (UILabel *)[headerView viewWithTag:headerLabelTag];
+        headerLabel.text = [NSString stringWithFormat:@"  同学评论(%d)", self.totalCount];
+        
+        return headerView;
+    }
+    return nil;
+}
+
 #pragma mark - TableView delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 126;
+        return CECourseInfoCellHeight;
     }
     return ((indexPath.row < self.comments.count) ? [CECourseCommentCell heightWithComment:self.comments[indexPath.row]] : 44.0);
 }
@@ -167,11 +215,12 @@
     if (section == 0) {
         return 0;
     }
-    return HEIGHt_4_SECTION;
+    return height4Section;
 }
 
 #pragma mark - Course evaluation request
 
+// load more
 - (void)loadMoreComments
 {
     if (self.isReload || self.isLoadMore || self.page >= self.totalPage) {
@@ -207,10 +256,11 @@
      } 
      failure:^(NSData *responseData, int httpCode) {
          self.isLoadMore = NO;
-         SHOW_NOTICE_HUD(@"错误..");
+         SHOW_NOTICE_HUD(kDefaultErrorNotice);
      }];
 }
 
+// reload
 - (void)reloadComments
 {
     if (self.isReload || self.isLoadMore) {
@@ -233,7 +283,6 @@
              self.page = 1;
              self.totalPage = [dict[CourseInfoSumPageKey] integerValue];
              self.totalCount = [dict[CourseInfoCountKey] integerValue];
-             NSLog(@"t %d %d", self.totalPage, self.totalCount);
              
              NSArray *tmpComments = dict[CourseInfoCommentsKey];
              
@@ -254,8 +303,17 @@
      } 
      failure:^(NSData *responseData, int httpCode) {
          self.isReload = NO;
-         SHOW_NOTICE_HUD(@"错误..");
+         SHOW_NOTICE_HUD(kDefaultErrorNotice);
      }];
+}
+
+// write comment
+- (void)showCommentWritingViewController
+{
+    CECommentWritingViewController *commentWritingViewController = [[CECommentWritingViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:commentWritingViewController];
+    commentWritingViewController.course = self.courseInfo;
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - ScrollView delegate
