@@ -94,7 +94,6 @@
 		186B2A2418BA4CB2000EC4A3 /* LibSearchBooksDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186B2A1118BA4CB2000EC4A3 /* LibSearchBooksDetailViewController.xib */; };
 		186B2A2518BA4CB2000EC4A3 /* LibSearchBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186B2A1318BA4CB2000EC4A3 /* LibSearchBooksViewController.m */; };
 		186B2A2618BA4CB2000EC4A3 /* LibSearchBooksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186B2A1418BA4CB2000EC4A3 /* LibSearchBooksViewController.xib */; };
-		186B2A2A18BA4E3C000EC4A3 /* CardStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186B2A2918BA4E3C000EC4A3 /* CardStyleView.m */; };
 		18954FB018B7574B009F28AF /* ImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 18954FAF18B7574B009F28AF /* ImageCropper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		189EF6CD17C2898F001B3C20 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189EF6CC17C2898F001B3C20 /* UIKit.framework */; };
 		189EF6CF17C2898F001B3C20 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 189EF6CE17C2898F001B3C20 /* Foundation.framework */; };
@@ -121,8 +120,6 @@
 		18B7A0D018B2259A009B1F7E /* AZNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B7A0CF18B2259A009B1F7E /* AZNewsCell.xib */; };
 		18C0B3C618B26148000B67EB /* AZNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C0B3C418B26148000B67EB /* AZNewsDetailViewController.m */; };
 		18C0B3C718B26148000B67EB /* AZNewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C0B3C518B26148000B67EB /* AZNewsDetailViewController.xib */; };
-		18D90F5918B8B78C00E0ADDB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D90F5718B8B78C00E0ADDB /* BaseViewController.m */; };
-		18D90F5A18B8B78C00E0ADDB /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D90F5818B8B78C00E0ADDB /* BaseViewController.xib */; };
 		18EC472918B468A80015DFEE /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EC472718B468A80015DFEE /* SelectionViewController.m */; };
 		18EC472A18B468A80015DFEE /* SelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EC472818B468A80015DFEE /* SelectionViewController.xib */; };
 		18EC473718B507980015DFEE /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EC473418B507980015DFEE /* libMobClickLibrary.a */; };
@@ -172,6 +169,9 @@
 		E134BDFB18D6D78200548307 /* write_comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDFA18D6D78200548307 /* write_comment@2x.png */; };
 		E134BDFE18D721B100548307 /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDFC18D721B100548307 /* check@2x.png */; };
 		E134BDFF18D721B100548307 /* x-mark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E134BDFD18D721B100548307 /* x-mark@2x.png */; };
+		E1E7168918D82D3A00D836E3 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E7168718D82D3A00D836E3 /* BaseViewController.m */; };
+		E1E7168A18D82D3A00D836E3 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7168818D82D3A00D836E3 /* BaseViewController.xib */; };
+		E1E7168D18D82DEB00D836E3 /* CardStyleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E7168C18D82DEB00D836E3 /* CardStyleView.m */; };
 		EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55935E4A02947EE81BFC401 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -313,8 +313,6 @@
 		186B2A1218BA4CB2000EC4A3 /* LibSearchBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibSearchBooksViewController.h; sourceTree = "<group>"; };
 		186B2A1318BA4CB2000EC4A3 /* LibSearchBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibSearchBooksViewController.m; sourceTree = "<group>"; };
 		186B2A1418BA4CB2000EC4A3 /* LibSearchBooksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibSearchBooksViewController.xib; sourceTree = "<group>"; };
-		186B2A2818BA4E3C000EC4A3 /* CardStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardStyleView.h; sourceTree = "<group>"; };
-		186B2A2918BA4E3C000EC4A3 /* CardStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardStyleView.m; sourceTree = "<group>"; };
 		18954FAE18B7574B009F28AF /* ImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCropper.h; sourceTree = "<group>"; };
 		18954FAF18B7574B009F28AF /* ImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCropper.m; sourceTree = "<group>"; };
 		189EF6C917C2898F001B3C20 /* iSCAU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSCAU.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,8 +336,8 @@
 		18A3FBC217C3500F007E60BD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controller/LoginViewController.h; sourceTree = "<group>"; };
 		18A3FBC317C3500F007E60BD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controller/LoginViewController.m; sourceTree = "<group>"; };
 		18A3FBC417C35010007E60BD /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = Controller/LoginViewController.xib; sourceTree = "<group>"; };
-		18B7A0B018B21036009B1F7E /* AZArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZArticleView.h; sourceTree = "<group>"; };
-		18B7A0B118B21036009B1F7E /* AZArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZArticleView.m; sourceTree = "<group>"; };
+		18B7A0B018B21036009B1F7E /* AZArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZArticleView.h; path = Vendor/AZArticleView.h; sourceTree = "<group>"; };
+		18B7A0B118B21036009B1F7E /* AZArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZArticleView.m; path = Vendor/AZArticleView.m; sourceTree = "<group>"; };
 		18B7A0B318B21106009B1F7E /* UIWebView+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Addition.h"; sourceTree = "<group>"; };
 		18B7A0B418B21106009B1F7E /* UIWebView+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Addition.m"; sourceTree = "<group>"; };
 		18B7A0B618B2111D009B1F7E /* UIButton+Bootstrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Bootstrap.h"; sourceTree = "<group>"; };
@@ -355,9 +353,6 @@
 		18C0B3C318B26148000B67EB /* AZNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZNewsDetailViewController.h; path = News/AZNewsDetailViewController.h; sourceTree = "<group>"; };
 		18C0B3C418B26148000B67EB /* AZNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZNewsDetailViewController.m; path = News/AZNewsDetailViewController.m; sourceTree = "<group>"; };
 		18C0B3C518B26148000B67EB /* AZNewsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZNewsDetailViewController.xib; path = News/AZNewsDetailViewController.xib; sourceTree = "<group>"; };
-		18D90F5618B8B78C00E0ADDB /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Controller/BaseViewController.h; sourceTree = "<group>"; };
-		18D90F5718B8B78C00E0ADDB /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Controller/BaseViewController.m; sourceTree = "<group>"; };
-		18D90F5818B8B78C00E0ADDB /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewController.xib; path = Controller/BaseViewController.xib; sourceTree = "<group>"; };
 		18EC472618B468A80015DFEE /* SelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectionViewController.h; path = Controller/SelectionViewController.h; sourceTree = "<group>"; };
 		18EC472718B468A80015DFEE /* SelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectionViewController.m; path = Controller/SelectionViewController.m; sourceTree = "<group>"; };
 		18EC472818B468A80015DFEE /* SelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectionViewController.xib; path = Controller/SelectionViewController.xib; sourceTree = "<group>"; };
@@ -428,6 +423,11 @@
 		E134BDFA18D6D78200548307 /* write_comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "write_comment@2x.png"; sourceTree = "<group>"; };
 		E134BDFC18D721B100548307 /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check@2x.png"; sourceTree = "<group>"; };
 		E134BDFD18D721B100548307 /* x-mark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x-mark@2x.png"; sourceTree = "<group>"; };
+		E1E7168618D82D3A00D836E3 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Common/BaseViewController.h; sourceTree = "<group>"; };
+		E1E7168718D82D3A00D836E3 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Common/BaseViewController.m; sourceTree = "<group>"; };
+		E1E7168818D82D3A00D836E3 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BaseViewController.xib; path = Common/BaseViewController.xib; sourceTree = "<group>"; };
+		E1E7168B18D82DEB00D836E3 /* CardStyleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CardStyleView.h; path = Common/CardStyleView.h; sourceTree = "<group>"; };
+		E1E7168C18D82DEB00D836E3 /* CardStyleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CardStyleView.m; path = Common/CardStyleView.m; sourceTree = "<group>"; };
 		F3C2D518F763477189F16CF2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -541,8 +541,6 @@
 				18954FAD18B7574B009F28AF /* ImageCropper */,
 				18443CA918B6FCA8006C4E6B /* UMFeedback_iOS_1.4 */,
 				18EC473318B507980015DFEE /* UMAnalytics_Sdk_2.2.1.OpenUDID */,
-				18B7A0B018B21036009B1F7E /* AZArticleView.h */,
-				18B7A0B118B21036009B1F7E /* AZArticleView.m */,
 				18EDE815188ABCCD00F31288 /* ImageHelper */,
 				18EDE7F3188A52A700F31288 /* AZSideMenu */,
 				182EEB521802A33D007E8946 /* PopoverView */,
@@ -735,8 +733,6 @@
 		186B2A2718BA4E3C000EC4A3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				186B2A2818BA4E3C000EC4A3 /* CardStyleView.h */,
-				186B2A2918BA4E3C000EC4A3 /* CardStyleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -790,17 +786,17 @@
 				189EF6DB17C2898F001B3C20 /* AppDelegate.h */,
 				189EF6DC17C2898F001B3C20 /* AppDelegate.m */,
 				1806EAF117C366960039A6B9 /* Constant.h */,
-				E1278AF118D30B5100177DFD /* Model */,
-				E1278ACF18D0177D00177DFD /* Common */,
-				E1278AE218D2102800177DFD /* CourseEvaluation */,
 				186B299318BA4C4E000EC4A3 /* EduSys */,
 				186B29F518BA4CB2000EC4A3 /* Library */,
 				18B7A0C318B2140B009B1F7E /* News */,
-				18252A3517E055D90063E822 /* Resources */,
+				E1278AE218D2102800177DFD /* CourseEvaluation */,
 				181BB52D17E1E6400055C8A5 /* Info */,
 				18A3FBCA17C35067007E60BD /* Controller */,
 				186B2A2718BA4E3C000EC4A3 /* View */,
+				E1278AF118D30B5100177DFD /* Model */,
+				E1278ACF18D0177D00177DFD /* Common */,
 				1861668317DBA59300ECFA5C /* Helper */,
+				18252A3517E055D90063E822 /* Resources */,
 				1861666017DB846400ECFA5C /* Vendor */,
 				18ED805F18BDB0F200B3BE0D /* Images.xcassets */,
 				189EF6D317C2898F001B3C20 /* Supporting Files */,
@@ -843,21 +839,18 @@
 		18A3FBCA17C35067007E60BD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18A3FBC217C3500F007E60BD /* LoginViewController.h */,
-				18A3FBC317C3500F007E60BD /* LoginViewController.m */,
-				18A3FBC417C35010007E60BD /* LoginViewController.xib */,
-				18EC472618B468A80015DFEE /* SelectionViewController.h */,
-				18EC472718B468A80015DFEE /* SelectionViewController.m */,
-				18EC472818B468A80015DFEE /* SelectionViewController.xib */,
 				18443CA418B6FA33006C4E6B /* AboutViewController.h */,
 				18443CA518B6FA33006C4E6B /* AboutViewController.m */,
 				18443CA618B6FA33006C4E6B /* AboutViewController.xib */,
-				18D90F5618B8B78C00E0ADDB /* BaseViewController.h */,
-				18D90F5718B8B78C00E0ADDB /* BaseViewController.m */,
-				18D90F5818B8B78C00E0ADDB /* BaseViewController.xib */,
+				18A3FBC217C3500F007E60BD /* LoginViewController.h */,
+				18A3FBC317C3500F007E60BD /* LoginViewController.m */,
+				18A3FBC417C35010007E60BD /* LoginViewController.xib */,
 				186B298E18BA4487000EC4A3 /* RootViewController.h */,
 				186B298F18BA4487000EC4A3 /* RootViewController.m */,
 				186B299018BA4487000EC4A3 /* RootViewController.xib */,
+				18EC472618B468A80015DFEE /* SelectionViewController.h */,
+				18EC472718B468A80015DFEE /* SelectionViewController.m */,
+				18EC472818B468A80015DFEE /* SelectionViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -865,6 +858,8 @@
 		18B7A0C318B2140B009B1F7E /* News */ = {
 			isa = PBXGroup;
 			children = (
+				18B7A0B018B21036009B1F7E /* AZArticleView.h */,
+				18B7A0B118B21036009B1F7E /* AZArticleView.m */,
 				18B7A0C418B21545009B1F7E /* AZNewsHttpClient.h */,
 				18B7A0C518B21545009B1F7E /* AZNewsHttpClient.m */,
 				18B7A0BE18B21403009B1F7E /* AZNewsListViewController.h */,
@@ -949,6 +944,11 @@
 			children = (
 				E1278ACC18D0176E00177DFD /* BaseHttpClient.h */,
 				E1278ACD18D0176E00177DFD /* BaseHttpClient.m */,
+				E1E7168618D82D3A00D836E3 /* BaseViewController.h */,
+				E1E7168718D82D3A00D836E3 /* BaseViewController.m */,
+				E1E7168818D82D3A00D836E3 /* BaseViewController.xib */,
+				E1E7168B18D82DEB00D836E3 /* CardStyleView.h */,
+				E1E7168C18D82DEB00D836E3 /* CardStyleView.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1088,6 +1088,7 @@
 				18443C9118B64636006C4E6B /* Icon-72.png in Resources */,
 				186B29EA18BA4C4E000EC4A3 /* EduSysMarkCell.xib in Resources */,
 				186B29F018BA4C4E000EC4A3 /* EduSysMarksViewController.xib in Resources */,
+				E1E7168A18D82D3A00D836E3 /* BaseViewController.xib in Resources */,
 				E134BDEE18D594B700548307 /* CECommentWritingViewController.xib in Resources */,
 				186B29D518BA4C4E000EC4A3 /* EduSysClassTableViewController.xib in Resources */,
 				E134BDF618D60CE800548307 /* dislike@2x.png in Resources */,
@@ -1104,7 +1105,6 @@
 				18ED807118BDB3B900B3BE0D /* BackButton@2x.png in Resources */,
 				18ED807B18BDB3B900B3BE0D /* semester.jpg in Resources */,
 				E134BDFE18D721B100548307 /* check@2x.png in Resources */,
-				18D90F5A18B8B78C00E0ADDB /* BaseViewController.xib in Resources */,
 				18ED807918BDB3B900B3BE0D /* news_list_header@2x.png in Resources */,
 				186B29F418BA4C4E000EC4A3 /* EduSysPickClassInfoViewController.xib in Resources */,
 				18443C9318B64636006C4E6B /* Icon-76.png in Resources */,
@@ -1219,7 +1219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18D90F5918B8B78C00E0ADDB /* BaseViewController.m in Sources */,
 				18EDE80E188A964400F31288 /* AZViewController.m in Sources */,
 				E1278AEB18D30A5A00177DFD /* CEHttpClient.m in Sources */,
 				189EF6D917C2898F001B3C20 /* main.m in Sources */,
@@ -1247,7 +1246,6 @@
 				186B2A1F18BA4CB2000EC4A3 /* LibSearchBooksCell.m in Sources */,
 				18B7A0C118B21403009B1F7E /* AZNewsListViewController.m in Sources */,
 				186B2A2318BA4CB2000EC4A3 /* LibSearchBooksDetailViewController.m in Sources */,
-				186B2A2A18BA4E3C000EC4A3 /* CardStyleView.m in Sources */,
 				1861668B17DBA59300ECFA5C /* UIImage+Tint.m in Sources */,
 				E134BDE918D49BC800548307 /* CourseComment.m in Sources */,
 				18C0B3C618B26148000B67EB /* AZNewsDetailViewController.m in Sources */,
@@ -1255,6 +1253,7 @@
 				18B7A0C618B21545009B1F7E /* AZNewsHttpClient.m in Sources */,
 				E134BDE018D4977E00548307 /* CECourseCommentsViewController.m in Sources */,
 				186B29F118BA4C4E000EC4A3 /* EduSysPickClassInfoCell.m in Sources */,
+				E1E7168D18D82DEB00D836E3 /* CardStyleView.m in Sources */,
 				E134BDED18D594B700548307 /* CECommentWritingViewController.m in Sources */,
 				1861668A17DBA59300ECFA5C /* UIColor+Addition.m in Sources */,
 				186B2A1A18BA4CB2000EC4A3 /* LibHttpClient.m in Sources */,
@@ -1281,6 +1280,7 @@
 				186B29E618BA4C4E000EC4A3 /* EduSysExamViewController.m in Sources */,
 				18EDE811188A970700F31288 /* AZSideMenuItem.m in Sources */,
 				186B29E018BA4C4E000EC4A3 /* EduSysEmptyClassroomSelectionViewController.m in Sources */,
+				E1E7168918D82D3A00D836E3 /* BaseViewController.m in Sources */,
 				E1278ACE18D0176E00177DFD /* BaseHttpClient.m in Sources */,
 				182EEB581802B093007E8946 /* PathHelper.m in Sources */,
 				E134BDF118D5DBAA00548307 /* CAKeyframeAnimation+Parametric.m in Sources */,
