@@ -48,6 +48,7 @@ CGFloat const writeCommentButtonHeight = 44.0;
     self.navigationController.navigationBar.translucent = NO;
     SET_DEFAULT_BACKGROUND_COLOR(self.tableView);
     
+    self.navigationItem.title = self.courseInfo.courseName;
 
     CGRect frame = CGRectZero;
     if (SystemVersion_floatValue >= 7.0) {

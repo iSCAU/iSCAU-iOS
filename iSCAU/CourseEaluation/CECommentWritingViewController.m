@@ -65,6 +65,8 @@
         frame.origin.y -= IPHONE_DEVICE_LENGTH_DIFFERENCE;
         self.btnSubmit.frame = frame;
     }
+    
+    self.navigationItem.title = @"课程评价";
      
     // left close button
     UIButton *btnClose = [UIButton buttonWithType:UIButtonTypeCustom];
