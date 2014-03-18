@@ -32,10 +32,7 @@ typedef NS_ENUM(NSInteger, AlertViewTag) {
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UMOnlineConfigDidFinishedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:SUGGEST_LOGIN_AGAIN_NOTIFICATION];
-    [[NSNotificationCenter defaultCenter] removeObserver:SHOW_NOTICE_NOTIFICATION];
-    [[NSNotificationCenter defaultCenter] removeObserver:HIDE_NOTICE_NOTIFICATION];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad
@@ -59,7 +56,7 @@ typedef NS_ENUM(NSInteger, AlertViewTag) {
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Login agant
+#pragma mark - Login again
 
 - (void)showLoginAgainSuggestion:(NSNotification *)notification 
 {
