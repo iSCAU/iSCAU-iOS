@@ -45,6 +45,15 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationController.navigationBar.translucent = NO;
     
+    if (IS_IPHONE4) {
+        CGFloat windowHeight = [UIScreen mainScreen].bounds.size.height;
+        self.view.frame = (CGRect){
+            CGPointZero,
+            self.view.width,
+            windowHeight - 44. - 20.
+        };
+    }
+    
     if (IS_FLAT_UI) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
@@ -52,6 +61,8 @@
     self.articleView = [[AZArticleView alloc] initWithFrame:self.view.bounds];
     [self.articleView setupWithNotice:self.notice];
     [self.view addSubview:self.articleView];
+    
+    self.view.backgroundColor = [UIColor colorWithR:244 g:244 b:244 a:1];
 }
 
 - (void)didReceiveMemoryWarning

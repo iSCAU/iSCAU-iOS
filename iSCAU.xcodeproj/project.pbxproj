@@ -186,6 +186,7 @@
 		E1E716AB18D85CB300D836E3 /* CETResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E716A918D85CB300D836E3 /* CETResultViewController.xib */; };
 		E1E716B418D8A19300D836E3 /* Notice.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E716B318D8A19300D836E3 /* Notice.m */; };
 		E1E716B718D9331900D836E3 /* CetMark.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E716B618D9331900D836E3 /* CetMark.m */; };
+		E1E980CA18E1768A0047CEAE /* time.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E980C918E1768A0047CEAE /* time.png */; };
 		EC034E895EDE4A4095C0EE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A55935E4A02947EE81BFC401 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -463,6 +464,7 @@
 		E1E716B318D8A19300D836E3 /* Notice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notice.m; path = Model/Notice.m; sourceTree = "<group>"; };
 		E1E716B518D9331900D836E3 /* CetMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CetMark.h; path = Model/CetMark.h; sourceTree = "<group>"; };
 		E1E716B618D9331900D836E3 /* CetMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CetMark.m; path = Model/CetMark.m; sourceTree = "<group>"; };
+		E1E980C918E1768A0047CEAE /* time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time.png; sourceTree = "<group>"; };
 		F3C2D518F763477189F16CF2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -923,6 +925,7 @@
 		18ED806118BDB3B900B3BE0D /* image */ = {
 			isa = PBXGroup;
 			children = (
+				E1E980C918E1768A0047CEAE /* time.png */,
 				E148FD6A18DC80740021747E /* notice_header_img@2x.png */,
 				E17B103E18D9EEE200B52749 /* cet_name@2x.png */,
 				E17B103F18D9EEE200B52749 /* cet_num@2x.png */,
@@ -1193,6 +1196,7 @@
 				18ED807C18BDB3B900B3BE0D /* sep.png in Resources */,
 				E1E716A118D848D900D836E3 /* CETAccountsListViewController.xib in Resources */,
 				18443C9B18B64636006C4E6B /* Icon.png in Resources */,
+				E1E980CA18E1768A0047CEAE /* time.png in Resources */,
 				186B2A1C18BA4CB2000EC4A3 /* LibListNowCell.xib in Resources */,
 				18443CB118B6FCA8006C4E6B /* umFeedback.bundle in Resources */,
 				E134BDF918D60CE800548307 /* liked@2x.png in Resources */,

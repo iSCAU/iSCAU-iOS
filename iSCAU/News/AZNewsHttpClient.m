@@ -37,6 +37,17 @@
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     __weak ASIHTTPRequest *weekRequest = request;
     [request setCompletionBlock:^{
+        NSInteger httpCode = [weekRequest responseStatusCode];
+
+        if (httpCode == ServerError) {
+            NSDictionary *dict = @{ kNotice : @"服务器挂了..换个接入点试试吧", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
+            POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
+            
+        } else if (httpCode == NullError) {
+            NSDictionary *dict = @{ kNotice : @"没找到相关信息哦", kHideNoticeIntervel : @(kDefaultHideNoticeIntervel) };
+            POST_NOTIFICATION(SHOW_NOTICE_NOTIFICATION, dict);
+        }
+        
         success([weekRequest responseData], [weekRequest responseStatusCode]);
     }];
     [request setFailedBlock:^{

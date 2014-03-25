@@ -9,11 +9,6 @@
 #import "AZNewsCell.h"
 #import "UIImage+Tint.h"
 
-
-#define kTime @"time"
-#define kTitle @"title"
-#define kURL @"url"
-
 @interface AZNewsCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *labTitle;
@@ -31,9 +26,7 @@
 - (UITableViewCell *)configurateInfo:(Notice *)notice index:(NSInteger)index {
     
     CGFloat originY = 10;
-    
-    NSLog(@"news %@", notice);
-    
+        
     self.labTitle.text = notice.title;
     CGFloat titleHeight = [Tool heightForNewsTitle:notice.title];
     CGRect frame = self.labTitle.frame;

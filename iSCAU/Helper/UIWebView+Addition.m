@@ -17,6 +17,7 @@ static char transparentKey;
 - (void)setTransparent:(BOOL)transparent {
     
     // clear UIWebView background shadow
+    self.backgroundColor = [UIColor clearColor];
     if ([self.subviews count] > 0 && SystemVersion_floatValue < 7.0) {
         // hide the shadows
         for (UIView* shadowView in [[[self subviews] objectAtIndex:0] subviews]) {

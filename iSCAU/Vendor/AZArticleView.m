@@ -117,12 +117,14 @@
 
 - (NSString *)contentStr:(Notice *)notice
 {
+    NSString    *timeIconFile = [[NSBundle mainBundle] pathForResource:@"time" ofType:@"png"];
+    NSURL       *timeIconUrl = [NSURL fileURLWithPath:timeIconFile];
+    
     NSString *content = [notice.content stringByReplacingOccurrencesOfString:@" " withString:@"&nbsp;"];
     content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"];
-    NSString *html = [NSString stringWithFormat:HTML_WRAPPER ,notice.title, notice.time, content];
-
+    NSString *html = [NSString stringWithFormat:HTML_WRAPPER ,notice.title, timeIconUrl, notice.time, content];
+    
     html = [NSString stringWithFormat:@"<html>%@<body>%@</body></html>", HTML_CSS, html];
-    NSLog(@"html %@", html);
     
     return html;
 }

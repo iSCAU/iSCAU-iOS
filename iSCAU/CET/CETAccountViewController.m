@@ -54,9 +54,7 @@
     [btnClose addTarget:self action:@selector(displayAccountsList) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *closeBarBtn = [[UIBarButtonItem alloc] initWithCustomView:btnClose];
     self.navigationItem.rightBarButtonItem = closeBarBtn;
-    
-    [self.txtUsername becomeFirstResponder];
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignAllFirstResponder) name:AZSideMenuStartPanningNotification object:nil];
 }
 

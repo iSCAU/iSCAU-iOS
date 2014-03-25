@@ -12,6 +12,8 @@
 #import "Notice.h"
 #import "AZNewsDetailViewController.h"
 
+#define yOffsetRate  0.5
+
 @interface AZNewsListViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) BOOL isLoading;
@@ -56,6 +58,9 @@ static CGFloat kImageOriginHight = 180.f;
     
     self.page = 0;
     [self loadNews];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showNotice:) name:SHOW_NOTICE_NOTIFICATION object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideNotice:) name:HIDE_NOTICE_NOTIFICATION object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,6 +109,33 @@ static CGFloat kImageOriginHight = 180.f;
             self.isLoading = NO;
         }];
     }
+}
+
+#pragma mark - Notice
+
+- (void)showNotice:(NSNotification *)notification 
+{
+    NSDictionary *info = notification.userInfo;
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    if (info[kNotice]) {
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = info[kNotice];
+    }
+    
+    if (info[kHideNoticeIntervel]) {
+        float intervel = [info[kHideNoticeIntervel] floatValue];
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, intervel * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        });
+    }
+}
+
+- (void)hideNotice:(NSNotification *)notification 
+{
+    HIDE_ALL_HUD;
 }
 
 #pragma mark - Table view datasource

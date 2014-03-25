@@ -26,6 +26,7 @@ typedef void(^ErrorBlock)(NSData *responseData, int httpCode);
 
 #define IPHONE_DEVICE_LENGTH_DIFFERENCE 88.0f
 
+
 // Notification
 #define kDefaultHideNoticeIntervel 1.5
 #define SHOW_NOTICE_NOTIFICATION                      @"SHOW_NOTICE_NOTIFICATION"
@@ -77,7 +78,7 @@ dispatch_after(popTime, dispatch_get_main_queue(), ^(void){ \
 #define CampusCard_connectionTag    @"CampusCard_connectionTag"
 #define CampusCard_isSavedPassword  @"CampusCard_isSavedPassword"
 
-#define HTML_WRAPPER @"<div class=\"titlearea\" style=\"margin-top:12px;color:rgb(183,183,183)\">%@</div><div class=\"authorAndPubDatePart\" style=\"font-family:Helvetica;font-size:12px;color:#cbcbcb;\"><span style=\" display:block; float:left;line-height:20px;padding-left:17px;opacity:.40;\">%@</span></div><div class=\"contentDetailarea\">%@</div><div class=\"spacetail\"></div>"
-#define HTML_CSS @" <head><meta http-equiv=\"Content-type\" content=\"text/html;charset=utf-8\"/><meta id=\"viewport\" name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\"/> <style type=\"text/css\">html,body{background-color:rgb(244,244,244); padding:0; margin:0;} a,a:hover,a:link,a:visited,a:active{text-decoration:none;color:rgb(229,169,0);border:none;background:none;} p{line-} .ifanrspan{line-} #content{overflow-x: hidden; overflow-y: scroll; word-wrap: break-word; } .titlearea{font-family:Helvetica;font-size:22px;line-height:28px;padding:0 85px 3px 15px;font-weight:bold;} .contentDetailarea{width:290px;text-align:justify;float:left;word-wrap:break-word;display:block; margin-left:15px;margin-bottom:10px;line-height:24px;font-family:Helvetica;font-size:16px;} .spacetail{padding:0 0 40 0px;} articleTitle{display:block;margin-left:15px; width:290px;height:auto;font-family:Helvetica;font-size:22px;line-height:28px;font-weight:bold;} </style></head>"
+#define HTML_WRAPPER @"<div class=\"titlearea\" style=\"margin-top:12px;color:rgb(183,183,183)\">%@</div><div class=\"authorAndPubDatePart\" style=\"font-family:Helvetica;font-size:12px;color:#cbcbcb;\"><span style=\" display:block; float:left;line-height:20px;padding-left:17px;margin-left:20px;background:url(%@) no-repeat 0 4;background-size:12px 12px;\">%@</span></div><div class=\"contentDetailarea\">%@</div><div class=\"spacetail\"></div>"
+#define HTML_CSS @" <head><meta http-equiv=\"Content-type\" content=\"text/html;charset=utf-8\"/><meta id=\"viewport\" name=\"viewport\" content=\"width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no\"/> <style type=\"text/css\">html,body{background-color:rgb(244,244,244); padding:0; margin:0;} a,a:hover,a:link,a:visited,a:active{text-decoration:none;color:rgb(229,169,0);border:none;background:none;} p{line-} .ifanrspan{line-} #content{overflow-x: hidden; overflow-y: scroll; word-wrap: break-word; } .titlearea{font-family:Helvetica;font-size:22px;line-height:28px;padding:0 15px 3px 15px;font-weight:bold;} .contentDetailarea{width:290px;text-align:justify;float:left;word-wrap:break-word;display:block; margin-left:15px;margin-bottom:10px;line-height:24px;font-family:Helvetica;font-size:16px;} .spacetail{padding:0 0 40 0px;} articleTitle{display:block;margin-left:15px; width:290px;height:auto;font-family:Helvetica;font-size:22px;line-height:28px;font-weight:bold;} </style></head>"
 
 #endif
