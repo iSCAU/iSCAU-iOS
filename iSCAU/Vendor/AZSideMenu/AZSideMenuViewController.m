@@ -11,13 +11,15 @@
 
 #import "MobClick.h"
 
-NSString * const AZSideMenuStartPanningNotification = @"AZSideMenuStartPanningNotification"; 
+NSString * const AZSideMenuStartPanningNotification = @"AZSideMenuStartPanningNotification";
 
 #define WIDTH_OPENED (35.f)
 #define MIN_SCALE_CONTROLLER (0.7f)
 #define MIN_SCALE_TABLEVIEW (0.8f)
 #define MIN_ALPHA_TABLEVIEW (0.01f)
 #define DELTA_OPENING (160.f)
+
+static UIView *maskView = nil;
 
 @interface AZSideMenuViewController () <UITableViewDelegate, UIGestureRecognizerDelegate>
 
@@ -28,6 +30,7 @@ NSString * const AZSideMenuStartPanningNotification = @"AZSideMenuStartPanningNo
 @property (nonatomic, assign) CGFloat minScaleController;
 @property (nonatomic, assign) CGFloat minScaleTableView;
 @property (nonatomic, assign) CGFloat minAlphaTableView;
+//@property (nonatomic, strong) UIView *maskView;
 
 @end
 
@@ -291,10 +294,19 @@ NSString * const AZSideMenuStartPanningNotification = @"AZSideMenuStartPanningNo
     }];
     
     _isMenuOpened = TRUE;
+    
+    if (!maskView) {
+        maskView = [[UIView alloc] initWithFrame:self.currentViewController.view.bounds];
+    }
+    [self.currentViewController.view addSubview:maskView];
 }
 
 - (void)closeMenuAnimated
 {
+    if (maskView) {
+        [maskView removeFromSuperview];
+    }
+    
     [UIView animateWithDuration:0.3f animations:^{
         
         self.currentViewController.view.transform = CGAffineTransformMakeScale(1.f, 1.f);

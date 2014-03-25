@@ -9,6 +9,8 @@
 #import "AZNewsListViewController.h"
 #import "AZNewsHttpClient.h"
 #import "AZNewsCell.h"
+#import "Notice.h"
+#import "AZNewsDetailViewController.h"
 
 @interface AZNewsListViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -62,7 +64,8 @@ static CGFloat kImageOriginHight = 180.f;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
     CGFloat yOffset  = scrollView.contentOffset.y;
     if (yOffset < -kImageOriginHight) {
         CGRect f = self.headerImageView.frame;
@@ -72,17 +75,28 @@ static CGFloat kImageOriginHight = 180.f;
     }
 }
 
-- (void)loadNews {
+- (void)loadNews 
+{
     if (!self.isLoading) {
         self.isLoading = YES;
-        [AZNewsHttpClient newsGetListWithPage:self.page + 1 success:^(NSData *responseData, int httpCode) {
-            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-            if (httpCode == 200 && dict && dict[@"notice"]) {
+        [[AZNewsHttpClient shareInstance] newsGetListWithPage:self.page + 1 success:^(NSData *responseData, int httpCode) {
+            
+            NSError *error = nil;
+            NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData 
+                                                                 options:kNilOptions 
+                                                                   error:&error];
+            if (!error && httpCode == RequestSuccess && dict && dict[@"notice"]) {
                 ++self.page;
-                [self.news addObjectsFromArray:dict[@"notice"]];
+                
+                for (NSDictionary *d in dict[@"notice"]) {
+                     Notice *notice = [MTLJSONAdapter modelOfClass:Notice.class fromJSONDictionary:d error:&error];
+                    [self.news addObject:notice];
+                }
+
                 if (self.page == 1) {
                     self.totalNewsCount = [dict[@"count"] integerValue];
                 }
+                
                 [self.tableNews reloadData];
                 self.isLoading = NO;
             }
@@ -94,7 +108,8 @@ static CGFloat kImageOriginHight = 180.f;
 
 #pragma mark - Table view datasource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+{
     if (self.news.count > 0 && self.news.count < self.totalNewsCount) {
         return self.news.count + 1;
     } else if (self.news.count == self.totalNewsCount) {
@@ -103,17 +118,20 @@ static CGFloat kImageOriginHight = 180.f;
     return 0;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
     if (self.news.count > 0 && indexPath.row == self.news.count && self.news.count < self.totalNewsCount) {
         return 44.f;
     } else {
-        CGFloat titleHeight = [Tool heightForNewsTitle:self.news[indexPath.row][@"title"]];
+        Notice *notice = self.news[indexPath.row];
+        CGFloat titleHeight = [Tool heightForNewsTitle:notice.title];
         return titleHeight + 40;
     }
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
     if (self.news.count > 0 && indexPath.row == self.news.count && self.news.count < self.totalNewsCount) {
         static NSString *LoadMoreIdentifier = @"LoadMoreIdentifier";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LoadMoreIdentifier];
@@ -148,6 +166,31 @@ static CGFloat kImageOriginHight = 180.f;
         }
         [(AZNewsCell *)cell configurateInfo:self.news[indexPath.row] index:indexPath.row];
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row < self.news.count) {
+        Notice *notice = self.news[indexPath.row];
+        SHOW_WATING_HUD;
+        [[AZNewsHttpClient shareInstance] newsGetContentWithURL:notice.url
+                                                        success:^(NSData *responseData, int httpCode) {
+                                                            if (httpCode == RequestSuccess) {
+                                                                HIDE_ALL_HUD;
+                                                                NSError *error = nil;
+                                                                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+                                                                if (error || !dict[@"content"]) {
+                                                                    
+                                                                } else {
+                                                                    notice.content = dict[@"content"];
+                                                                    AZNewsDetailViewController *noticeDetailViewController = [[AZNewsDetailViewController alloc] initWithNotice:notice];
+                                                                    [self.navigationController pushViewController:noticeDetailViewController animated:YES];
+                                                                }
+                                                            }
+                                                        } failure:^(NSData *responseData, int httpCode) {
+                                                            
+                                                        }];
     }
 }
 

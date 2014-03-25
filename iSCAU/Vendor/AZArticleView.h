@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Notice.h"
 
 @protocol ArticleViewDelegate <NSObject>
 @optional
@@ -23,7 +24,7 @@
 @property (nonatomic, assign) id<ArticleViewDelegate> delegate;
 @property (nonatomic, retain) UIScrollView *backgroundScrollView;
 
-- (void)setupWithURL:(NSString *)url;
+- (void)setupWithNotice:(Notice *)notice;
 - (void)scrollToTop;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AZNewsHttpClient.h"
+#import <Base64/MF_Base64Additions.h>
 
 @implementation AZNewsHttpClient
 
@@ -17,9 +18,20 @@
  array('notice/getcontent/:url', 'Notice/getNoticeContent', '', 'get', 'json,'),
  */
 
-+ (void)startRequestWithUrl:(NSString *)urlString
++ (instancetype)shareInstance 
+{
+    static AZNewsHttpClient *sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedClient = [[AZNewsHttpClient alloc] init];
+    });
+    return sharedClient;
+}
+
+- (void)startRequestWithUrl:(NSString *)urlString
                     success:(SuccessedBlock)success
-                    failure:(ErrorBlock)failure {
+                    failure:(ErrorBlock)failure 
+{
     NSLog(@"url %@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -36,19 +48,20 @@
     [request startAsynchronous];
 }
 
-+ (void)newsGetListWithPage:(NSInteger)page 
+- (void)newsGetListWithPage:(NSInteger)page 
                     success:(SuccessedBlock)success
-                    failure:(ErrorBlock)failure {
+                    failure:(ErrorBlock)failure 
+{
     NSString *urlString = [NSString stringWithFormat:@"%@/notice/getlist/%@", HOST_NAME, @(page)];
     [self startRequestWithUrl:urlString success:success failure:failure];
 }
 
-+ (void)newsGetContentWithURL:(NSString *)url 
+- (void)newsGetContentWithURL:(NSString *)url 
                       success:(SuccessedBlock)success
-                      failure:(ErrorBlock)failure {
-    NSString *urlString = [NSString stringWithFormat:@"%@/notice/getcontent/%@", HOST_NAME, url];
+                      failure:(ErrorBlock)failure 
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/notice/getcontent/%@", HOST_NAME, [url base64String]];
     [self startRequestWithUrl:urlString success:success failure:failure];
-
 }
 
 @end

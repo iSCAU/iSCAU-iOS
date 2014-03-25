@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectionViewController : UITableViewController
+
 @property (nonatomic, copy) NSString *notificationName;
 @property (nonatomic, copy) NSString *selectionKey;
 @property (nonatomic, strong) NSArray *selections;
+
 @end

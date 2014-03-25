@@ -29,6 +29,9 @@
 // CourseEvaluation
 #import "CESearchCourseViewController.h"
 
+// CET
+#import "CETAccountViewController.h"
+
 // Other
 #import "AboutViewController.h"
 #import "LoginViewController.h"
@@ -133,7 +136,14 @@
     
     
     // 新闻
-//    AZSideMenuItem *news = [[AZSideMenuItem alloc] initWithTitle:@"校园新闻" class:[AZNewsListViewController class]];
+    AZSideMenuItem *news = [[AZSideMenuItem alloc] initWithTitle:@"校园新闻" class:[AZNewsListViewController class]];
+    
+    // 四六级
+    AZSideMenuItem *cet = [[AZSideMenuItem alloc] initWithTitle:@"四六级成绩" class:nil action:^(AZSideMenuItem *item) {
+        CETAccountViewController *viewController = [[CETAccountViewController alloc] init];
+        viewController.title = item.title;
+        return viewController;
+    }];
     
     // 其它
     AZSideMenuItem *more = [[AZSideMenuItem alloc] initWithTitle:@"帐号设置" class:nil action:^(AZSideMenuItem *item) {
@@ -149,7 +159,7 @@
         return viewController;
     }];
     
-    return [[NSArray alloc] initWithObjects:eduSys, lib, courseEvaluation, info, more, about, nil];
+    return [[NSArray alloc] initWithObjects:eduSys, lib, courseEvaluation, info, news, cet, more, about, nil];
 }
 
 @end

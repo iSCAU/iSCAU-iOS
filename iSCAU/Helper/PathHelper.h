@@ -19,4 +19,5 @@
 + (NSString *)emptyClassroomParamsFileName;
 + (NSString *)likedCoursesFileName;
 + (NSString *)dislikedCoursesFileName;
+
 @end

@@ -7,3 +7,5 @@ pod 'AZTools', :podspec => 'https://raw.github.com/gbammc/AZTools/master/AZTools
 pod 'FPBrandColors',  '~> 0.1.3'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'Mantle', '~> 1.4'
+pod 'SSKeychain'
+pod 'Base64', '~> 1.0.1'

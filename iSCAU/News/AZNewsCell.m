@@ -9,6 +9,7 @@
 #import "AZNewsCell.h"
 #import "UIImage+Tint.h"
 
+
 #define kTime @"time"
 #define kTitle @"title"
 #define kURL @"url"
@@ -27,12 +28,14 @@
     
 }
 
-- (UITableViewCell *)configurateInfo:(NSDictionary *)info index:(NSInteger)index {
+- (UITableViewCell *)configurateInfo:(Notice *)notice index:(NSInteger)index {
     
     CGFloat originY = 10;
     
-    self.labTitle.text = info[kTitle];
-    CGFloat titleHeight = [Tool heightForNewsTitle:info[kTitle]];
+    NSLog(@"news %@", notice);
+    
+    self.labTitle.text = notice.title;
+    CGFloat titleHeight = [Tool heightForNewsTitle:notice.title];
     CGRect frame = self.labTitle.frame;
     frame.size.height = titleHeight;
     self.labTitle.frame = frame;
@@ -42,7 +45,7 @@
     frame.origin.y = originY + 3;
     self.imgClock.frame = frame;
     
-    self.labTime.text = info[kTime];
+    self.labTime.text = notice.time;
     frame = self.labTime.frame;
     frame.origin.y = originY;
     self.labTime.frame = frame;

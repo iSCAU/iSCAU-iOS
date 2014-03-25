@@ -58,4 +58,11 @@
 // View helper
 + (UITableViewCell *)loadMoreCellWithIdentifier:(NSString *)identifier;
 
+// Time helper
++ (NSString *)timeStampParseWithDateString:(NSString *)dateString 
+                       andOriginDateFormat:(NSString *)originDateFormat;
+
+// UIBarButton helper
++ (UIBarButtonItem *)barButtonItemWithName:(NSString *)buttonName target:(id)target selector:(SEL)selector;
+
 @end

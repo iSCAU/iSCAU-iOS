@@ -31,21 +31,11 @@
 
 @property (nonatomic, retain) UIImageView *headerImageView;
 @property (nonatomic, retain) UIWebView   *articleWebView;
-@property (nonatomic, retain) UIImageView *headerHaloImageView;
-@property (nonatomic, retain) UILabel     *labHeaderNotice;
-@property (nonatomic, retain) UIImageView *footerHaloImageView;
-@property (nonatomic, retain) UILabel     *labFooterNotice;
 @property (nonatomic, retain) UIWebView   *sharedWebView;
 
 @end
 
 @implementation AZArticleView
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"articleWebView.scrollView.contentSize"]) {
-        [self resetContentSize];
-    }
-}
 
 - (void)resetContentSize {
     CGFloat height = self.articleWebView.scrollView.contentSize.height;
@@ -92,29 +82,15 @@
         [self.backgroundScrollView addSubview:self.articleWebView];
         
         [self setupHeaderImageView];
-        
-        [self addObserver:self forKeyPath:@"articleWebView.scrollView.contentSize" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }
 
 #pragma mark - Public methods
 
-- (void)setupWithURL:(NSString *)url {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-//    // Header image
-//    NSString *placeHolderImageName = IS_NIGHT_MODE ? @"blankpic_wenzhang_dark.png" : @"blankpic_wenzhang.png";
-//    if (![article.firstImageLink isEqualToString:@"null"]) {
-//        CGRect frame = self.headerImageView.frame;
-//        frame.origin = CGPointZero;
-//        self.headerImageView.frame = frame;
-//        
-//        [self.headerImageView setImageWithURL:[NSURL URLWithString:article.firstImageLink] placeholderImage:[UIImage imageNamed:placeHolderImageName]];
-//    } else {
-//        [self.headerImageView setImage:[UIImage imageNamed:placeHolderImageName]];
-//    }
-    self.headerImageView.image = [UIImage imageNamed:@""];
+- (void)setupWithNotice:(Notice *)notice
+{
+    self.headerImageView.image = [UIImage imageNamed:@"notice_header_img.png"];
     
     // ArticleWebView
     self.backgroundScrollView.frame = self.bounds;
@@ -122,9 +98,9 @@
     frame.origin.y = kHeaderImageHeight;
     frame.size.height -= kHeaderImageHeight;
     self.articleWebView.frame = frame;
-    [self.articleWebView loadHTMLString:@"" baseURL:nil];
+
+    [self.articleWebView loadHTMLString:[self contentStr:notice] baseURL:nil];
     
-    // Background content size
     [self resetContentSize];
     self.backgroundScrollView.contentOffset = CGPointZero;
 }
@@ -138,6 +114,18 @@
 }
 
 #pragma mark - Private methods
+
+- (NSString *)contentStr:(Notice *)notice
+{
+    NSString *content = [notice.content stringByReplacingOccurrencesOfString:@" " withString:@"&nbsp;"];
+    content = [content stringByReplacingOccurrencesOfString:@"\n" withString:@"<br>"];
+    NSString *html = [NSString stringWithFormat:HTML_WRAPPER ,notice.title, notice.time, content];
+
+    html = [NSString stringWithFormat:@"<html>%@<body>%@</body></html>", HTML_CSS, html];
+    NSLog(@"html %@", html);
+    
+    return html;
+}
 
 - (CGFloat)getImageScale {
     CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -162,22 +150,10 @@
     [self.articleWebView setTransparent:YES];
 }
 
-
 - (void)setupHeaderImageView {
     CGRect frame = self.headerImageView.frame;
     frame.size.height = kHeaderImageHeight;
     self.headerImageView.frame = frame;
-}
-
-- (void)clearHalo {
-    if (self.labHeaderNotice != nil)
-        [self.labHeaderNotice removeFromSuperview];
-    if (self.headerHaloImageView != nil)
-        [self.headerHaloImageView removeFromSuperview];
-    if (self.labFooterNotice != nil)
-        [self.labFooterNotice removeFromSuperview];
-    if (self.footerHaloImageView != nil)
-        [self.footerHaloImageView removeFromSuperview];
 }
 
 #pragma mark- uiwebview delegate Method
@@ -203,7 +179,6 @@
 #pragma mark- UIScrollViewDelegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    [self hiddenShareView];
     if ([self.delegate respondsToSelector:@selector(backgroundScrollViewBeginScroll:)]) {
         [self.delegate backgroundScrollViewBeginScroll:scrollView];
     }
@@ -212,8 +187,7 @@
     if (!CGSizeEqualToSize(scrollView.contentSize, webViewContentSize)) {
         scrollView.contentSize = webViewContentSize;
     }
-    self.footerHaloImageView.hidden = NO;
-    self.labFooterNotice.hidden = NO;
+
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -234,134 +208,8 @@
             frame.origin.y = -scrollView.contentOffset.y;
             self.headerImageView.frame = frame;
         }
-
-        // 下拉
-        if (scrollView.contentOffset.y < 0) {
-            if (scrollView.contentOffset.y < - noticeLabelInset - noticeLabelHeight - haloImageWidth) {
-                CGRect frame = self.headerHaloImageView.frame;
-                frame.origin.y = (scrollView.contentOffset.y + noticeLabelInset + noticeLabelHeight + haloImageWidth) / 2 + (- noticeLabelInset - haloImageWidth - upInset);
-                self.headerHaloImageView.frame = frame;
-                
-                frame = self.labHeaderNotice.frame;
-                frame.origin.y = (scrollView.contentOffset.y  + noticeLabelHeight + noticeLabelInset + haloImageWidth) / 2 + (- noticeLabelHeight - upInset);
-                self.labHeaderNotice.frame = frame;
-                
-            } else if (scrollView.contentOffset.y < -upInset) {
-                CGRect frame = self.headerHaloImageView.frame;
-                frame.origin.y = -upInset - haloImageWidth - noticeLabelInset;
-                self.headerHaloImageView.frame = frame;
-                
-                frame = self.labHeaderNotice.frame;
-                frame.origin.y = - upInset - noticeLabelHeight;
-                self.labHeaderNotice.frame = frame;
-            }
-            if (NO) {
-                return;
-            } else {
-                if (scrollView.isDragging) {
-                    if (scrollView.contentOffset.y < -triggeredOffset - upInset) {
-                        if (headerRefreshPulling == NO) {
-                            headerRefreshPulling = YES;
-                            CGAffineTransform transform = CGAffineTransformRotate(self.headerHaloImageView.transform,  M_PI);
-                            [UIView animateWithDuration:0.2f
-                                                options:UIViewAnimationOptionCurveEaseInOut
-                                             animations:^{
-                                                 [self.headerHaloImageView setTransform:transform];
-                                             }
-                             ];
-                        }
-                    } else {
-                        if (headerRefreshPulling == YES) {
-                            headerRefreshPulling = NO;
-                            CGAffineTransform transform = CGAffineTransformRotate(self.headerHaloImageView.transform,  M_PI);
-                            [UIView animateWithDuration:0.2
-                                                options:UIViewAnimationOptionCurveEaseInOut
-                                             animations:^{
-                                                 [self.headerHaloImageView setTransform:transform];
-                                             }
-                             ];
-                        }
-                    }
-                }
-            }
-            // 上拉
-        } else if (!transforming) {
-            if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.height + noticeLabelInset + noticeLabelHeight + haloImageWidth) {
-                CGRect frame = self.footerHaloImageView.frame;
-                frame.origin.y = (scrollView.contentOffset.y - scrollView.contentSize.height + scrollView.height - noticeLabelInset - haloImageWidth - noticeLabelHeight) / 2 + bottomInset + noticeLabelInset + scrollView.contentSize.height;
-                self.footerHaloImageView.frame = frame;
-                
-                frame = self.labFooterNotice.frame;
-                frame.origin.y = (scrollView.contentOffset.y - scrollView.contentSize.height + scrollView.height - noticeLabelInset - haloImageWidth - noticeLabelHeight) / 2 + bottomInset + scrollView.contentSize.height;
-                self.labFooterNotice.frame = frame;
-            } else if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.height + bottomInset) {
-                CGRect frame = self.footerHaloImageView.frame;
-                frame.origin.y = scrollView.contentSize.height + bottomInset + noticeLabelInset;
-                self.footerHaloImageView.frame = frame;
-                
-                frame = self.labFooterNotice.frame;
-                frame.origin.y = scrollView.contentSize.height + bottomInset;
-                self.labFooterNotice.frame = frame;
-            }
-            
-            if (animating == YES) {
-                return;
-            } else {
-                if (scrollView.isDragging) {
-                    if (scrollView.contentOffset.y > scrollView.contentSize.height + triggeredOffset + bottomInset - scrollView.height) {
-                        if (footerRefreshPulling == NO) {
-                            footerRefreshPulling = YES;
-                            CGAffineTransform transform = CGAffineTransformRotate(self.footerHaloImageView.transform,  M_PI);
-                            [UIView animateWithDuration:0.2f
-                                                options:UIViewAnimationOptionCurveEaseInOut
-                                             animations:^{
-                                                 [self.footerHaloImageView setTransform:transform];
-                                             }
-                             ];
-                        }
-                    } else {
-                        if (footerRefreshPulling == YES) {
-                            footerRefreshPulling = NO;
-                            CGAffineTransform transform = CGAffineTransformRotate(self.footerHaloImageView.transform,  M_PI);
-                            [UIView animateWithDuration:0.2
-                                                options:UIViewAnimationOptionCurveEaseInOut
-                                             animations:^{
-                                                 [self.footerHaloImageView setTransform:transform];
-                                             }
-                             ];
-                        }
-                    }
-                }
-            }
-        }
     }
 }
-
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    if (scrollView.contentOffset.y < -triggeredOffset - upInset && APP_DELEGATE.selectedIndex != 0) {
-//        [scrollView setContentOffset:scrollView.contentOffset];
-//        [UIView animateWithDuration:1 animations:^{
-//            [scrollView setContentOffset:CGPointZero];
-//            CGRect frame = self.headerImageView.frame;
-//            frame.origin = CGPointZero;
-//            self.headerImageView.frame = frame;
-//        }];
-//        if ([self.delegate respondsToSelector:@selector(shouldPullToLastArticle)]) {
-//            [self.delegate shouldPullToLastArticle];
-//        }
-//    } else if (scrollView.contentOffset.y > scrollView.contentSize.height + triggeredOffset + bottomInset - scrollView.height && APP_DELEGATE.selectedIndex < APP_DELEGATE.articles.count - 1) {
-//        [UIView animateWithDuration:1 animations:^{
-//            [scrollView setContentOffset:CGPointZero];
-//        }];
-//        [UIView animateWithDuration:0.1f animations:^{
-//            self.footerHaloImageView.alpha = 0.f;
-//            self.labFooterNotice.alpha = 0.f;
-//        }];
-//        if ([self.delegate respondsToSelector:@selector(shouldPullToNextArticle)]) {
-//            [self.delegate shouldPullToNextArticle];
-//        }
-//    }
-//}
 
 #pragma mark- UIGestureRecognizerDelegate
 

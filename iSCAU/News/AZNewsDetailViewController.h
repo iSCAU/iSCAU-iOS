@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Notice.h"
 
 @interface AZNewsDetailViewController : UIViewController
+
+- (instancetype)initWithNotice:(Notice *)notice;
 
 @end

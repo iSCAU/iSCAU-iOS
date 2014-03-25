@@ -132,7 +132,6 @@ static NSString *TEACHER = @"teacher";
             temp_node = [NSString stringWithFormat:@"周%@ %d-%d节%@", temp_day, startClassIndex + 1, endClassIndex + 1, temp_node];
         }
         @catch (NSException *exception) {
-            NSLog(@"error");
             temp_node = [NSString stringWithFormat:@"周%@ 1-2节%@", temp_day, temp_node];
         }
         [self.btn_time setTitle:temp_node forState:UIControlStateNormal];
@@ -140,8 +139,8 @@ static NSString *TEACHER = @"teacher";
         [picker selectRow:startClassIndex inComponent:START_CLASS animated:YES];
         [picker selectRow:endClassIndex inComponent:END_CLASS animated:YES];
     }
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleBordered target:self action:@selector(saveBtnPressed)];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    self.navigationItem.rightBarButtonItem = [Tool barButtonItemWithName:@"保存" target:self selector:@selector(saveBtnPressed)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -412,6 +411,9 @@ static NSString *TEACHER = @"teacher";
                 }
             }
             NSMutableArray *array = [self parseClassesData:[self loadLocalClassesData]];
+            if (!array) {
+                array = [NSMutableArray array];
+            }
             [array addObject:@{ 
                               CLASSNAME: temp_classname, 
                               DAY: day, 

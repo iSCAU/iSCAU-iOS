@@ -20,10 +20,18 @@ NSString * const ExperiencePwd = @"ilovescau";
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *btnServer;
+@property (nonatomic, weak) IBOutlet UITextField  *txtStuNum;
+@property (nonatomic, weak) IBOutlet UITextField  *txtStuPwd;
+@property (nonatomic, weak) IBOutlet UITextField  *txtLibPwd;
 
 @end
 
 @implementation LoginViewController
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -66,6 +74,8 @@ NSString * const ExperiencePwd = @"ilovescau";
     dispatch_after(delayTime, dispatch_get_main_queue(), ^(void){
         [self.txtStuNum becomeFirstResponder];
     });
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignAllFirstResponder) name:AZSideMenuStartPanningNotification object:nil];
 }
 
 - (void)back {
@@ -83,16 +93,6 @@ NSString * const ExperiencePwd = @"ilovescau";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignAllFirstResponder) name:AZSideMenuStartPanningNotification object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:AZSideMenuStartPanningNotification];
-}
-
 #pragma mark - 
 
 - (void)resignAllFirstResponder {
@@ -100,7 +100,6 @@ NSString * const ExperiencePwd = @"ilovescau";
     [self.txtStuPwd resignFirstResponder];
     [self.txtLibPwd resignFirstResponder];
 }
-
 
 - (IBAction)selectServer:(id)sender {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectedServer:) name:SelectServerNotification object:nil];

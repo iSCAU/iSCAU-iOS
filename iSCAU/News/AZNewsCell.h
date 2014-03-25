@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Notice.h"
 
 @interface AZNewsCell : UITableViewCell
-- (UITableViewCell *)configurateInfo:(NSDictionary *)info index:(NSInteger)index;
+
+- (UITableViewCell *)configurateInfo:(Notice *)notice index:(NSInteger)index;
+
 @end
